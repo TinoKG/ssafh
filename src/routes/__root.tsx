@@ -73,13 +73,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Skagit Valley Care Home — Adult Family Home in Mount Vernon, WA" },
+      { title: "Senior Services Home — Adult Family Home in Mount Vernon, WA" },
       { name: "description", content: "Licensed adult family home in Mount Vernon, Washington. Six private rooms, 24/7 personalized care, family-owned." },
       { name: "author", content: "Skagit Valley Care Home" },
-      { property: "og:title", content: "Skagit Valley Care Home — Mount Vernon, WA" },
-      { property: "og:description", content: "A safe, caring home in the heart of Mount Vernon. Six private rooms, 24/7 personalized care." },
+      { property: "og:title", content: "Senior Services Home — Adult Family Home in Mount Vernon, WA" },
+      { property: "og:description", content: "Licensed adult family home in Mount Vernon, Washington. Six private rooms, 24/7 personalized care, family-owned." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Senior Services Home — Adult Family Home in Mount Vernon, WA" },
+      { name: "twitter:description", content: "Licensed adult family home in Mount Vernon, Washington. Six private rooms, 24/7 personalized care, family-owned." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7cc4f5ab-6679-476d-a384-d1282aad0404/id-preview-ba818b55--ad8f48b2-147d-4507-8f88-bd4b636b28f9.lovable.app-1779668001132.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7cc4f5ab-6679-476d-a384-d1282aad0404/id-preview-ba818b55--ad8f48b2-147d-4507-8f88-bd4b636b28f9.lovable.app-1779668001132.png" },
     ],
     links: [
       {
