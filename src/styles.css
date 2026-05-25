@@ -64,7 +64,7 @@
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.18 0.01 80);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
@@ -140,5 +140,74 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
   }
 }
+
+/* ============================================================
+   HERITAGE design system (Warm Heritage Editorial — v2)
+   Scope: .design-heritage
+   Fonts: Fraunces display + Inter body
+   ============================================================ */
+.design-heritage {
+  --h-bg: #fafaf9;
+  --h-ink: #1c1917;
+  --h-muted: #78716c;
+  --h-primary: #3f6212;
+  --h-primary-soft: #ecfccb;
+  --h-surface: #f5f5f4;
+  --h-border: rgba(0, 0, 0, 0.08);
+  --h-card: #ffffff;
+  background: var(--h-bg);
+  color: var(--h-ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 18px;
+  line-height: 1.55;
+}
+.design-heritage .font-display {
+  font-family: 'Fraunces', Georgia, serif;
+  letter-spacing: -0.02em;
+}
+.design-heritage ::selection { background: rgba(63, 98, 18, 0.18); }
+
+/* ============================================================
+   HEIRLOOM design system (Editorial Heirloom — v3)
+   Scope: .design-heirloom
+   Fonts: Lora serif + Inter body + JetBrains Mono accents
+   ============================================================ */
+.design-heirloom {
+  --hl-bg: #F9F7F2;
+  --hl-ink: #2D2A26;
+  --hl-muted: rgba(45, 42, 38, 0.65);
+  --hl-primary: #5B6351;
+  --hl-primary-soft: rgba(91, 99, 81, 0.08);
+  --hl-surface: #F1ECE3;
+  --hl-border: rgba(45, 42, 38, 0.12);
+  --hl-card: #ffffff;
+  background: var(--hl-bg);
+  color: var(--hl-ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
+.design-heirloom .font-serif {
+  font-family: 'Lora', 'Iowan Old Style', Georgia, serif;
+  letter-spacing: -0.01em;
+}
+.design-heirloom .font-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+.design-heirloom ::selection { background: rgba(91, 99, 81, 0.2); }
+
+/* Focus visible (a11y on both designs) */
+.design-heritage :focus-visible,
+.design-heirloom :focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fade-up 0.7s cubic-bezier(0.32, 0.72, 0, 1) both; }
