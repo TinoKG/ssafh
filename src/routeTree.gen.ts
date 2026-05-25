@@ -9,9 +9,14 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as HeritageRouteImport } from './routes/heritage'
+import { Route as HeirloomRouteImport } from './routes/heirloom'
+import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as HeritageIndexRouteImport } from './routes/heritage.index'
+import { Route as HeirloomIndexRouteImport } from './routes/heirloom.index'
 import { Route as HeritageTourRouteImport } from './routes/heritage.tour'
 import { Route as HeritageServicesRouteImport } from './routes/heritage.services'
 import { Route as HeritageRoomsRouteImport } from './routes/heritage.rooms'
@@ -21,9 +26,29 @@ import { Route as HeritageAdmissionsRouteImport } from './routes/heritage.admiss
 import { Route as HeritageAboutRouteImport } from './routes/heritage.about'
 import { Route as HeritageRoomsSlugRouteImport } from './routes/heritage.rooms.$slug'
 
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HeritageRoute = HeritageRouteImport.update({
   id: '/heritage',
   path: '/heritage',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HeirloomRoute = HeirloomRouteImport.update({
+  id: '/heirloom',
+  path: '/heirloom',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccessibilityRoute = AccessibilityRouteImport.update({
+  id: '/accessibility',
+  path: '/accessibility',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -35,6 +60,11 @@ const HeritageIndexRoute = HeritageIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => HeritageRoute,
+} as any)
+const HeirloomIndexRoute = HeirloomIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => HeirloomRoute,
 } as any)
 const HeritageTourRoute = HeritageTourRouteImport.update({
   id: '/tour',
@@ -79,7 +109,11 @@ const HeritageRoomsSlugRoute = HeritageRoomsSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/accessibility': typeof AccessibilityRoute
+  '/heirloom': typeof HeirloomRouteWithChildren
   '/heritage': typeof HeritageRouteWithChildren
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/heritage/about': typeof HeritageAboutRoute
   '/heritage/admissions': typeof HeritageAdmissionsRoute
   '/heritage/contact': typeof HeritageContactRoute
@@ -87,11 +121,15 @@ export interface FileRoutesByFullPath {
   '/heritage/rooms': typeof HeritageRoomsRouteWithChildren
   '/heritage/services': typeof HeritageServicesRoute
   '/heritage/tour': typeof HeritageTourRoute
+  '/heirloom/': typeof HeirloomIndexRoute
   '/heritage/': typeof HeritageIndexRoute
   '/heritage/rooms/$slug': typeof HeritageRoomsSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/accessibility': typeof AccessibilityRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/heritage/about': typeof HeritageAboutRoute
   '/heritage/admissions': typeof HeritageAdmissionsRoute
   '/heritage/contact': typeof HeritageContactRoute
@@ -99,13 +137,18 @@ export interface FileRoutesByTo {
   '/heritage/rooms': typeof HeritageRoomsRouteWithChildren
   '/heritage/services': typeof HeritageServicesRoute
   '/heritage/tour': typeof HeritageTourRoute
+  '/heirloom': typeof HeirloomIndexRoute
   '/heritage': typeof HeritageIndexRoute
   '/heritage/rooms/$slug': typeof HeritageRoomsSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/accessibility': typeof AccessibilityRoute
+  '/heirloom': typeof HeirloomRouteWithChildren
   '/heritage': typeof HeritageRouteWithChildren
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/heritage/about': typeof HeritageAboutRoute
   '/heritage/admissions': typeof HeritageAdmissionsRoute
   '/heritage/contact': typeof HeritageContactRoute
@@ -113,6 +156,7 @@ export interface FileRoutesById {
   '/heritage/rooms': typeof HeritageRoomsRouteWithChildren
   '/heritage/services': typeof HeritageServicesRoute
   '/heritage/tour': typeof HeritageTourRoute
+  '/heirloom/': typeof HeirloomIndexRoute
   '/heritage/': typeof HeritageIndexRoute
   '/heritage/rooms/$slug': typeof HeritageRoomsSlugRoute
 }
@@ -120,7 +164,11 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/accessibility'
+    | '/heirloom'
     | '/heritage'
+    | '/privacy'
+    | '/terms'
     | '/heritage/about'
     | '/heritage/admissions'
     | '/heritage/contact'
@@ -128,11 +176,15 @@ export interface FileRouteTypes {
     | '/heritage/rooms'
     | '/heritage/services'
     | '/heritage/tour'
+    | '/heirloom/'
     | '/heritage/'
     | '/heritage/rooms/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/accessibility'
+    | '/privacy'
+    | '/terms'
     | '/heritage/about'
     | '/heritage/admissions'
     | '/heritage/contact'
@@ -140,12 +192,17 @@ export interface FileRouteTypes {
     | '/heritage/rooms'
     | '/heritage/services'
     | '/heritage/tour'
+    | '/heirloom'
     | '/heritage'
     | '/heritage/rooms/$slug'
   id:
     | '__root__'
     | '/'
+    | '/accessibility'
+    | '/heirloom'
     | '/heritage'
+    | '/privacy'
+    | '/terms'
     | '/heritage/about'
     | '/heritage/admissions'
     | '/heritage/contact'
@@ -153,22 +210,55 @@ export interface FileRouteTypes {
     | '/heritage/rooms'
     | '/heritage/services'
     | '/heritage/tour'
+    | '/heirloom/'
     | '/heritage/'
     | '/heritage/rooms/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccessibilityRoute: typeof AccessibilityRoute
+  HeirloomRoute: typeof HeirloomRouteWithChildren
   HeritageRoute: typeof HeritageRouteWithChildren
+  PrivacyRoute: typeof PrivacyRoute
+  TermsRoute: typeof TermsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/heritage': {
       id: '/heritage'
       path: '/heritage'
       fullPath: '/heritage'
       preLoaderRoute: typeof HeritageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/heirloom': {
+      id: '/heirloom'
+      path: '/heirloom'
+      fullPath: '/heirloom'
+      preLoaderRoute: typeof HeirloomRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/accessibility': {
+      id: '/accessibility'
+      path: '/accessibility'
+      fullPath: '/accessibility'
+      preLoaderRoute: typeof AccessibilityRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -184,6 +274,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/heritage/'
       preLoaderRoute: typeof HeritageIndexRouteImport
       parentRoute: typeof HeritageRoute
+    }
+    '/heirloom/': {
+      id: '/heirloom/'
+      path: '/'
+      fullPath: '/heirloom/'
+      preLoaderRoute: typeof HeirloomIndexRouteImport
+      parentRoute: typeof HeirloomRoute
     }
     '/heritage/tour': {
       id: '/heritage/tour'
@@ -244,6 +341,18 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface HeirloomRouteChildren {
+  HeirloomIndexRoute: typeof HeirloomIndexRoute
+}
+
+const HeirloomRouteChildren: HeirloomRouteChildren = {
+  HeirloomIndexRoute: HeirloomIndexRoute,
+}
+
+const HeirloomRouteWithChildren = HeirloomRoute._addFileChildren(
+  HeirloomRouteChildren,
+)
+
 interface HeritageRoomsRouteChildren {
   HeritageRoomsSlugRoute: typeof HeritageRoomsSlugRoute
 }
@@ -284,8 +393,22 @@ const HeritageRouteWithChildren = HeritageRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccessibilityRoute: AccessibilityRoute,
+  HeirloomRoute: HeirloomRouteWithChildren,
   HeritageRoute: HeritageRouteWithChildren,
+  PrivacyRoute: PrivacyRoute,
+  TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
