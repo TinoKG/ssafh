@@ -9,38 +9,258 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as HeritageRouteImport } from './routes/heritage'
+import { Route as HeirloomRouteImport } from './routes/heirloom'
+import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as HeritageIndexRouteImport } from './routes/heritage.index'
+import { Route as HeirloomIndexRouteImport } from './routes/heirloom.index'
+import { Route as HeritageTourRouteImport } from './routes/heritage.tour'
+import { Route as HeritageServicesRouteImport } from './routes/heritage.services'
+import { Route as HeritageRoomsRouteImport } from './routes/heritage.rooms'
+import { Route as HeritageResourcesRouteImport } from './routes/heritage.resources'
+import { Route as HeritageContactRouteImport } from './routes/heritage.contact'
+import { Route as HeritageAdmissionsRouteImport } from './routes/heritage.admissions'
+import { Route as HeritageAboutRouteImport } from './routes/heritage.about'
+import { Route as HeritageRoomsSlugRouteImport } from './routes/heritage.rooms.$slug'
 
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HeritageRoute = HeritageRouteImport.update({
+  id: '/heritage',
+  path: '/heritage',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HeirloomRoute = HeirloomRouteImport.update({
+  id: '/heirloom',
+  path: '/heirloom',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccessibilityRoute = AccessibilityRouteImport.update({
+  id: '/accessibility',
+  path: '/accessibility',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HeritageIndexRoute = HeritageIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => HeritageRoute,
+} as any)
+const HeirloomIndexRoute = HeirloomIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => HeirloomRoute,
+} as any)
+const HeritageTourRoute = HeritageTourRouteImport.update({
+  id: '/tour',
+  path: '/tour',
+  getParentRoute: () => HeritageRoute,
+} as any)
+const HeritageServicesRoute = HeritageServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => HeritageRoute,
+} as any)
+const HeritageRoomsRoute = HeritageRoomsRouteImport.update({
+  id: '/rooms',
+  path: '/rooms',
+  getParentRoute: () => HeritageRoute,
+} as any)
+const HeritageResourcesRoute = HeritageResourcesRouteImport.update({
+  id: '/resources',
+  path: '/resources',
+  getParentRoute: () => HeritageRoute,
+} as any)
+const HeritageContactRoute = HeritageContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => HeritageRoute,
+} as any)
+const HeritageAdmissionsRoute = HeritageAdmissionsRouteImport.update({
+  id: '/admissions',
+  path: '/admissions',
+  getParentRoute: () => HeritageRoute,
+} as any)
+const HeritageAboutRoute = HeritageAboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => HeritageRoute,
+} as any)
+const HeritageRoomsSlugRoute = HeritageRoomsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => HeritageRoomsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/accessibility': typeof AccessibilityRoute
+  '/heirloom': typeof HeirloomRouteWithChildren
+  '/heritage': typeof HeritageRouteWithChildren
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
+  '/heritage/about': typeof HeritageAboutRoute
+  '/heritage/admissions': typeof HeritageAdmissionsRoute
+  '/heritage/contact': typeof HeritageContactRoute
+  '/heritage/resources': typeof HeritageResourcesRoute
+  '/heritage/rooms': typeof HeritageRoomsRouteWithChildren
+  '/heritage/services': typeof HeritageServicesRoute
+  '/heritage/tour': typeof HeritageTourRoute
+  '/heirloom/': typeof HeirloomIndexRoute
+  '/heritage/': typeof HeritageIndexRoute
+  '/heritage/rooms/$slug': typeof HeritageRoomsSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/accessibility': typeof AccessibilityRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
+  '/heritage/about': typeof HeritageAboutRoute
+  '/heritage/admissions': typeof HeritageAdmissionsRoute
+  '/heritage/contact': typeof HeritageContactRoute
+  '/heritage/resources': typeof HeritageResourcesRoute
+  '/heritage/rooms': typeof HeritageRoomsRouteWithChildren
+  '/heritage/services': typeof HeritageServicesRoute
+  '/heritage/tour': typeof HeritageTourRoute
+  '/heirloom': typeof HeirloomIndexRoute
+  '/heritage': typeof HeritageIndexRoute
+  '/heritage/rooms/$slug': typeof HeritageRoomsSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/accessibility': typeof AccessibilityRoute
+  '/heirloom': typeof HeirloomRouteWithChildren
+  '/heritage': typeof HeritageRouteWithChildren
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
+  '/heritage/about': typeof HeritageAboutRoute
+  '/heritage/admissions': typeof HeritageAdmissionsRoute
+  '/heritage/contact': typeof HeritageContactRoute
+  '/heritage/resources': typeof HeritageResourcesRoute
+  '/heritage/rooms': typeof HeritageRoomsRouteWithChildren
+  '/heritage/services': typeof HeritageServicesRoute
+  '/heritage/tour': typeof HeritageTourRoute
+  '/heirloom/': typeof HeirloomIndexRoute
+  '/heritage/': typeof HeritageIndexRoute
+  '/heritage/rooms/$slug': typeof HeritageRoomsSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/accessibility'
+    | '/heirloom'
+    | '/heritage'
+    | '/privacy'
+    | '/terms'
+    | '/heritage/about'
+    | '/heritage/admissions'
+    | '/heritage/contact'
+    | '/heritage/resources'
+    | '/heritage/rooms'
+    | '/heritage/services'
+    | '/heritage/tour'
+    | '/heirloom/'
+    | '/heritage/'
+    | '/heritage/rooms/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/accessibility'
+    | '/privacy'
+    | '/terms'
+    | '/heritage/about'
+    | '/heritage/admissions'
+    | '/heritage/contact'
+    | '/heritage/resources'
+    | '/heritage/rooms'
+    | '/heritage/services'
+    | '/heritage/tour'
+    | '/heirloom'
+    | '/heritage'
+    | '/heritage/rooms/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/accessibility'
+    | '/heirloom'
+    | '/heritage'
+    | '/privacy'
+    | '/terms'
+    | '/heritage/about'
+    | '/heritage/admissions'
+    | '/heritage/contact'
+    | '/heritage/resources'
+    | '/heritage/rooms'
+    | '/heritage/services'
+    | '/heritage/tour'
+    | '/heirloom/'
+    | '/heritage/'
+    | '/heritage/rooms/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccessibilityRoute: typeof AccessibilityRoute
+  HeirloomRoute: typeof HeirloomRouteWithChildren
+  HeritageRoute: typeof HeritageRouteWithChildren
+  PrivacyRoute: typeof PrivacyRoute
+  TermsRoute: typeof TermsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/heritage': {
+      id: '/heritage'
+      path: '/heritage'
+      fullPath: '/heritage'
+      preLoaderRoute: typeof HeritageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/heirloom': {
+      id: '/heirloom'
+      path: '/heirloom'
+      fullPath: '/heirloom'
+      preLoaderRoute: typeof HeirloomRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/accessibility': {
+      id: '/accessibility'
+      path: '/accessibility'
+      fullPath: '/accessibility'
+      preLoaderRoute: typeof AccessibilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +268,136 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/heritage/': {
+      id: '/heritage/'
+      path: '/'
+      fullPath: '/heritage/'
+      preLoaderRoute: typeof HeritageIndexRouteImport
+      parentRoute: typeof HeritageRoute
+    }
+    '/heirloom/': {
+      id: '/heirloom/'
+      path: '/'
+      fullPath: '/heirloom/'
+      preLoaderRoute: typeof HeirloomIndexRouteImport
+      parentRoute: typeof HeirloomRoute
+    }
+    '/heritage/tour': {
+      id: '/heritage/tour'
+      path: '/tour'
+      fullPath: '/heritage/tour'
+      preLoaderRoute: typeof HeritageTourRouteImport
+      parentRoute: typeof HeritageRoute
+    }
+    '/heritage/services': {
+      id: '/heritage/services'
+      path: '/services'
+      fullPath: '/heritage/services'
+      preLoaderRoute: typeof HeritageServicesRouteImport
+      parentRoute: typeof HeritageRoute
+    }
+    '/heritage/rooms': {
+      id: '/heritage/rooms'
+      path: '/rooms'
+      fullPath: '/heritage/rooms'
+      preLoaderRoute: typeof HeritageRoomsRouteImport
+      parentRoute: typeof HeritageRoute
+    }
+    '/heritage/resources': {
+      id: '/heritage/resources'
+      path: '/resources'
+      fullPath: '/heritage/resources'
+      preLoaderRoute: typeof HeritageResourcesRouteImport
+      parentRoute: typeof HeritageRoute
+    }
+    '/heritage/contact': {
+      id: '/heritage/contact'
+      path: '/contact'
+      fullPath: '/heritage/contact'
+      preLoaderRoute: typeof HeritageContactRouteImport
+      parentRoute: typeof HeritageRoute
+    }
+    '/heritage/admissions': {
+      id: '/heritage/admissions'
+      path: '/admissions'
+      fullPath: '/heritage/admissions'
+      preLoaderRoute: typeof HeritageAdmissionsRouteImport
+      parentRoute: typeof HeritageRoute
+    }
+    '/heritage/about': {
+      id: '/heritage/about'
+      path: '/about'
+      fullPath: '/heritage/about'
+      preLoaderRoute: typeof HeritageAboutRouteImport
+      parentRoute: typeof HeritageRoute
+    }
+    '/heritage/rooms/$slug': {
+      id: '/heritage/rooms/$slug'
+      path: '/$slug'
+      fullPath: '/heritage/rooms/$slug'
+      preLoaderRoute: typeof HeritageRoomsSlugRouteImport
+      parentRoute: typeof HeritageRoomsRoute
+    }
   }
 }
 
+interface HeirloomRouteChildren {
+  HeirloomIndexRoute: typeof HeirloomIndexRoute
+}
+
+const HeirloomRouteChildren: HeirloomRouteChildren = {
+  HeirloomIndexRoute: HeirloomIndexRoute,
+}
+
+const HeirloomRouteWithChildren = HeirloomRoute._addFileChildren(
+  HeirloomRouteChildren,
+)
+
+interface HeritageRoomsRouteChildren {
+  HeritageRoomsSlugRoute: typeof HeritageRoomsSlugRoute
+}
+
+const HeritageRoomsRouteChildren: HeritageRoomsRouteChildren = {
+  HeritageRoomsSlugRoute: HeritageRoomsSlugRoute,
+}
+
+const HeritageRoomsRouteWithChildren = HeritageRoomsRoute._addFileChildren(
+  HeritageRoomsRouteChildren,
+)
+
+interface HeritageRouteChildren {
+  HeritageAboutRoute: typeof HeritageAboutRoute
+  HeritageAdmissionsRoute: typeof HeritageAdmissionsRoute
+  HeritageContactRoute: typeof HeritageContactRoute
+  HeritageResourcesRoute: typeof HeritageResourcesRoute
+  HeritageRoomsRoute: typeof HeritageRoomsRouteWithChildren
+  HeritageServicesRoute: typeof HeritageServicesRoute
+  HeritageTourRoute: typeof HeritageTourRoute
+  HeritageIndexRoute: typeof HeritageIndexRoute
+}
+
+const HeritageRouteChildren: HeritageRouteChildren = {
+  HeritageAboutRoute: HeritageAboutRoute,
+  HeritageAdmissionsRoute: HeritageAdmissionsRoute,
+  HeritageContactRoute: HeritageContactRoute,
+  HeritageResourcesRoute: HeritageResourcesRoute,
+  HeritageRoomsRoute: HeritageRoomsRouteWithChildren,
+  HeritageServicesRoute: HeritageServicesRoute,
+  HeritageTourRoute: HeritageTourRoute,
+  HeritageIndexRoute: HeritageIndexRoute,
+}
+
+const HeritageRouteWithChildren = HeritageRoute._addFileChildren(
+  HeritageRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccessibilityRoute: AccessibilityRoute,
+  HeirloomRoute: HeirloomRouteWithChildren,
+  HeritageRoute: HeritageRouteWithChildren,
+  PrivacyRoute: PrivacyRoute,
+  TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
