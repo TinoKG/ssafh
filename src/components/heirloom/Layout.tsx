@@ -19,7 +19,7 @@ function Header() {
     <header className="sticky top-0 z-50" style={{ background: "var(--hl-bg)", borderBottom: "1px solid var(--hl-border)" }}>
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link to="/heirloom" className="font-serif text-2xl">
-          <span className="italic">{s?.business_name ?? "Skagit Valley Care Home"}</span>
+          <span className="italic">{s?.business_name ?? "Senior Services Adult Family Home"}</span>
         </Link>
         <nav className="hidden lg:flex items-center gap-8" aria-label="Primary">
           <NavLink to="/heirloom/about" label="About" />

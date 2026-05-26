@@ -7,7 +7,7 @@ import { useState } from "react";
 export const Route = createFileRoute("/heritage/rooms")({
   head: () => ({
     meta: [
-      { title: "Our Rooms — Skagit Valley Care Home" },
+      { title: "Our Rooms — Senior Services Adult Family Home" },
       { name: "description", content: "Six private rooms with garden views, wood floors, and personalized touches. See live availability." },
       { property: "og:title", content: "Our Rooms" },
       { property: "og:image", content: ASSETS.room },

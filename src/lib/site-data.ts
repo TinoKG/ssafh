@@ -111,7 +111,9 @@ export const settingsQueryOptions = () =>
         .maybeSingle();
       if (error) throw error;
       return (data ?? {
-        business_name: "Skagit Valley Care Home",
+        business_name: "Senior Services Adult Family Home",
+        email: "seniorservicesafh@gmail.com",
+        phone: "+1 360 770 6434",
       }) as SiteSettings;
     },
   });

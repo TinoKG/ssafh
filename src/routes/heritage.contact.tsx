@@ -7,9 +7,9 @@ import { Phone, Mail, MapPin } from "lucide-react";
 export const Route = createFileRoute("/heritage/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Us — Skagit Valley Care Home" },
+      { title: "Contact Us — Senior Services Adult Family Home" },
       { name: "description", content: "Reach our Mount Vernon adult family home by phone, email, or message. We respond within one business day." },
-      { property: "og:title", content: "Contact Skagit Valley Care Home" },
+      { property: "og:title", content: "Contact Senior Services Adult Family Home" },
     ],
   }),
   component: Page,
@@ -30,6 +30,10 @@ function Page() {
           <a href={`mailto:${s?.email}`} className="flex gap-4 p-5 rounded-xl bg-white" style={{ border: "1px solid var(--h-border)" }}>
             <Mail className="size-6 mt-1" style={{ color: "var(--h-primary)" }} aria-hidden />
             <div><p className="text-xs uppercase tracking-widest text-stone-500">Email</p><p className="font-display text-xl break-all">{s?.email}</p></div>
+          </a>
+          <a href="mailto:joycengaruiya@gmail.com" className="flex gap-4 p-5 rounded-xl bg-white" style={{ border: "1px solid var(--h-border)" }}>
+            <Mail className="size-6 mt-1" style={{ color: "var(--h-primary)" }} aria-hidden />
+            <div><p className="text-xs uppercase tracking-widest text-stone-500">Owner</p><p className="font-display text-xl break-all">joycengaruiya@gmail.com</p></div>
           </a>
           <div className="flex gap-4 p-5 rounded-xl bg-white" style={{ border: "1px solid var(--h-border)" }}>
             <MapPin className="size-6 mt-1" style={{ color: "var(--h-primary)" }} aria-hidden />

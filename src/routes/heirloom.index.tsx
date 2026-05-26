@@ -7,9 +7,9 @@ import { ASSETS } from "@/lib/assets";
 export const Route = createFileRoute("/heirloom/")({
   head: () => ({
     meta: [
-      { title: "Skagit Valley Care Home — Mount Vernon, WA" },
-      { name: "description", content: "A licensed adult family home in Mount Vernon. Six private rooms, quiet rhythms, dignified care." },
-      { property: "og:title", content: "Skagit Valley Care Home" },
+      { title: "Senior Services Adult Family Home — Mount Vernon, WA" },
+      { name: "description", content: "Senior Services Adult Family Home is a licensed Mount Vernon adult family home with private rooms, personalized care, and a calm residential atmosphere." },
+      { property: "og:title", content: "Senior Services Adult Family Home" },
       { property: "og:image", content: ASSETS.hero },
     ],
   }),
@@ -46,7 +46,7 @@ function Page() {
             <p className="font-mono text-xs uppercase tracking-widest text-[var(--hl-muted)] mt-2">rooms available</p>
           </div>
         </div>
-        <img src={ASSETS.hero} alt="A sunlit reading nook with garden flowers" className="mt-16 w-full aspect-[21/9] object-cover" width={1600} height={700} />
+        <img src={ASSETS.hero} alt="Senior Services Adult Family Home exterior with mature tree, ramp, and front lawn" className="mt-16 w-full aspect-[21/9] object-cover" width={1600} height={700} />
       </section>
 
       <section className="max-w-6xl mx-auto px-6 py-20">

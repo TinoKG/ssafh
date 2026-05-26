@@ -8,9 +8,9 @@ import { ArrowRight, Heart, Home, Users, ShieldCheck } from "lucide-react";
 export const Route = createFileRoute("/heritage/")({
   head: () => ({
     meta: [
-      { title: "Skagit Valley Care Home — Adult Family Home in Mount Vernon, WA" },
-      { name: "description", content: "Family-owned, DSHS-licensed adult family home in Mount Vernon. Six private rooms, 24-hour care, home-cooked meals." },
-      { property: "og:title", content: "Skagit Valley Care Home" },
+      { title: "Senior Services Adult Family Home — Adult Family Home in Mount Vernon, WA" },
+      { name: "description", content: "Senior Services Adult Family Home offers personalized care, private rooms, and a warm residential setting in Mount Vernon." },
+      { property: "og:title", content: "Senior Services Adult Family Home" },
       { property: "og:description", content: "A real home for our community's seniors — six private rooms, 24/7 personalized care." },
       { property: "og:image", content: ASSETS.hero },
     ],
@@ -49,7 +49,7 @@ function Page() {
             </div>
           </div>
           <div className="relative">
-            <img src={ASSETS.hero} alt="A sunlit reading nook with armchair, plants, and garden flowers" className="rounded-2xl shadow-xl w-full aspect-[4/5] object-cover" width={1600} height={1100} />
+              <img src={ASSETS.hero} alt="Front exterior of Senior Services Adult Family Home with landscaped lawn and accessible entry" className="rounded-2xl shadow-xl w-full aspect-[4/5] object-cover" width={1600} height={1100} />
             <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-lg p-5 max-w-[240px] hidden md:block" style={{ border: "1px solid var(--h-border)" }}>
               <p className="text-xs uppercase tracking-widest text-stone-500">Today</p>
               <p className="font-display text-2xl mt-1">{rooms.filter(r=>r.status==="available").length} rooms available</p>

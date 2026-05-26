@@ -6,9 +6,9 @@ import { ASSETS } from "@/lib/assets";
 export const Route = createFileRoute("/heritage/about")({
   head: () => ({
     meta: [
-      { title: "About Us — Skagit Valley Care Home" },
+      { title: "About Us — Senior Services Adult Family Home" },
       { name: "description", content: "Family-owned adult family home in Mount Vernon. Meet the owner, caregivers, and mission behind our home." },
-      { property: "og:title", content: "About Skagit Valley Care Home" },
+      { property: "og:title", content: "About Senior Services Adult Family Home" },
       { property: "og:description", content: "A small home, run by a family with deep Skagit Valley roots." },
       { property: "og:image", content: ASSETS.garden },
     ],
@@ -17,8 +17,8 @@ export const Route = createFileRoute("/heritage/about")({
 });
 
 const TIMELINE = [
-  { year: "[YEAR]", title: "Doors opened", body: "Founded with one goal: a true home for six neighbors." },
-  { year: "[YEAR]", title: "DSHS Specialty designation", body: "Memory care specialty added to support residents with dementia." },
+  { year: "Care-centered", title: "Doors opened", body: "Founded with one goal: a true home for six neighbors in a comfortable residential setting." },
+  { year: "Licensed", title: "State-regulated care", body: "Built around licensed adult family home standards, clear communication, and steady day-to-day support." },
   { year: "Today", title: "A growing legacy", body: "Dozens of families served — and friendships that outlast a stay." },
 ];
 
@@ -27,12 +27,12 @@ function Page() {
   return (
     <article className="max-w-5xl mx-auto px-6 py-16 lg:py-24">
       <p className="text-xs uppercase tracking-[0.25em]" style={{ color: "var(--h-primary)" }}>About</p>
-      <h1 className="font-display text-5xl md:text-6xl mt-4">Family-owned, since {s?.year_opened ?? "[YEAR]"}.</h1>
+      <h1 className="font-display text-5xl md:text-6xl mt-4">Family-owned care in a true residential home.</h1>
       <p className="mt-6 text-lg text-stone-600 max-w-3xl">
         We're a small, licensed adult family home in {s?.city ?? "Mount Vernon"}, {s?.state ?? "WA"}. Our job is simple and serious: care for six people the way we'd want our own family cared for.
       </p>
 
-      <img src={ASSETS.garden} alt="A back garden with raised vegetable beds" className="mt-12 rounded-2xl w-full aspect-[16/9] object-cover" width={1400} height={1000} loading="lazy" />
+      <img src={ASSETS.garden} alt="Landscaped exterior garden and lawn at Senior Services Adult Family Home" className="mt-12 rounded-2xl w-full aspect-[16/9] object-cover" width={1400} height={1000} loading="lazy" />
 
       <div className="grid md:grid-cols-2 gap-12 mt-16">
         <div>
@@ -41,7 +41,7 @@ function Page() {
         </div>
         <div>
           <h2 className="font-display text-3xl">The owner</h2>
-          <p className="mt-4 text-stone-600">[OWNER_NAME] has spent [X] years in residential care and personally oversees the home day-to-day. You'll meet them on your tour.</p>
+          <p className="mt-4 text-stone-600">Joycen Garuiya personally oversees the home and welcomes families who want a calm, dignified, residential care setting. You'll meet her during your tour and be able to ask questions directly.</p>
         </div>
       </div>
 

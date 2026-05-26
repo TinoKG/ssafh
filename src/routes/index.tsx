@@ -4,8 +4,8 @@ import { Link } from "@tanstack/react-router";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Skagit Valley Care Home — Two design previews" },
-      { name: "description", content: "Preview two design directions for the Mount Vernon adult family home website." },
+      { title: "Senior Services Adult Family Home — Two design previews" },
+      { name: "description", content: "Preview two design directions for Senior Services Adult Family Home in Mount Vernon, Washington." },
     ],
   }),
   component: Index,
@@ -17,7 +17,7 @@ function Index() {
       <div className="max-w-5xl mx-auto px-6 py-20">
         <p className="text-xs uppercase tracking-[0.25em]" style={{ color: "#5B6351" }}>Design preview · Mount Vernon, WA</p>
         <h1 className="mt-4 text-5xl md:text-6xl leading-tight" style={{ fontFamily: "Lora, Georgia, serif", letterSpacing: "-0.01em" }}>
-          Two design directions for <em>Skagit Valley Care Home</em>.
+          Two design directions for <em>Senior Services Adult Family Home</em>.
         </h1>
         <p className="mt-6 max-w-2xl text-lg" style={{ color: "rgba(45,42,38,0.7)" }}>
           Both sites share the same content, admin, and data — only the visual direction differs.
