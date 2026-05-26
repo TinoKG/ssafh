@@ -27,7 +27,7 @@ function Page() {
   return (
     <article className="max-w-5xl mx-auto px-6 py-16 lg:py-24">
       <p className="text-xs uppercase tracking-[0.25em]" style={{ color: "var(--h-primary)" }}>About</p>
-      <h1 className="font-display text-5xl md:text-6xl mt-4">Family-owned, since {s?.year_opened ?? "[YEAR]"}.</h1>
+      <h1 className="font-display text-5xl md:text-6xl mt-4">Family-owned care in a true residential home.</h1>
       <p className="mt-6 text-lg text-stone-600 max-w-3xl">
         We're a small, licensed adult family home in {s?.city ?? "Mount Vernon"}, {s?.state ?? "WA"}. Our job is simple and serious: care for six people the way we'd want our own family cared for.
       </p>

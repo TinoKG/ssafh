@@ -9,7 +9,7 @@ export const Route = createFileRoute("/heritage/rooms/$slug")({
   loader: ({ context, params }) => context.queryClient.ensureQueryData(roomQueryOptions(params.slug)),
   head: ({ params }) => ({
     meta: [
-      { title: `${params.slug.replace(/-/g, " ")} — Skagit Valley Care Home` },
+      { title: `${params.slug.replace(/-/g, " ")} — Senior Services Adult Family Home` },
       { property: "og:image", content: ASSETS.room },
     ],
   }),

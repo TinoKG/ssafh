@@ -7,7 +7,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 export const Route = createFileRoute("/heritage/resources")({
   head: () => ({
     meta: [
-      { title: "Resources & FAQ — Skagit Valley Care Home" },
+      { title: "Resources & FAQ — Senior Services Adult Family Home" },
       { name: "description", content: "Guides, tour checklists, DSHS inspection links, and answers to questions families ask most." },
       { property: "og:title", content: "Resources for Families" },
     ],
