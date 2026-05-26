@@ -26,7 +26,7 @@ function Header() {
           <span className="grid place-items-center size-9 rounded-full" style={{ background: "var(--h-primary-soft)" }}>
             <Leaf className="size-5" style={{ color: "var(--h-primary)" }} aria-hidden />
           </span>
-          <span className="font-display text-xl font-semibold">{s?.business_name ?? "Skagit Valley Care Home"}</span>
+          <span className="font-display text-xl font-semibold">{s?.business_name ?? "Senior Services Adult Family Home"}</span>
         </Link>
         <nav className="hidden lg:flex items-center gap-8" aria-label="Primary">
           <NavLink to="/heritage/about" label="About" />
