@@ -5,7 +5,7 @@ import { ASSETS } from "@/lib/assets";
 export const Route = createFileRoute("/heritage/services")({
   head: () => ({
     meta: [
-      { title: "Services — Skagit Valley Care Home" },
+      { title: "Services — Senior Services Adult Family Home" },
       { name: "description", content: "Daily living support, meals, medication management, memory care, and 24-hour supervision in a six-resident home." },
       { property: "og:title", content: "Our Services" },
       { property: "og:image", content: ASSETS.dining },

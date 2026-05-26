@@ -5,7 +5,7 @@ import { TOUR_CHECKLIST } from "@/lib/content";
 export const Route = createFileRoute("/heritage/tour")({
   head: () => ({
     meta: [
-      { title: "Schedule a Tour — Skagit Valley Care Home" },
+      { title: "Schedule a Tour — Senior Services Adult Family Home" },
       { name: "description", content: "Schedule an in-person tour of our adult family home in Mount Vernon, WA. 45 minutes, no pressure." },
       { property: "og:title", content: "Schedule a Tour" },
     ],
