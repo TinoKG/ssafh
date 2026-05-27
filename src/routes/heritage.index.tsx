@@ -8,11 +8,15 @@ import { ArrowRight, Heart, Home, Users, ShieldCheck } from "lucide-react";
 export const Route = createFileRoute("/heritage/")({
   head: () => ({
     meta: [
-      { title: "Senior Services Adult Family Home — Adult Family Home in Mount Vernon, WA" },
-      { name: "description", content: "Senior Services Adult Family Home offers personalized care, private rooms, and a warm residential setting in Mount Vernon." },
-      { property: "og:title", content: "Senior Services Adult Family Home" },
-      { property: "og:description", content: "A real home for our community's seniors — six private rooms, 24/7 personalized care." },
+      { title: "Adult Family Home in Mount Vernon, WA | Senior Services AFH" },
+      { name: "description", content: "Senior Services Adult Family Home — a licensed adult family home in Mount Vernon, WA serving Skagit County. Six private rooms, 24-hour personalized senior care, dementia support, and a true residential setting." },
+      { property: "og:title", content: "Adult Family Home in Mount Vernon, WA — Senior Services AFH" },
+      { property: "og:description", content: "Licensed adult family home in Mount Vernon, WA. Private rooms, 24-hour care, dementia support across Skagit County." },
+      { property: "og:url", content: "https://ssafh.lovable.app/heritage" },
       { property: "og:image", content: ASSETS.hero },
+    ],
+    links: [
+      { rel: "canonical", href: "https://ssafh.lovable.app/heritage" },
     ],
   }),
   component: Page,
@@ -31,10 +35,10 @@ function Page() {
               Adult Family Home · Mount Vernon, WA
             </p>
             <h1 className="font-display text-5xl md:text-6xl lg:text-7xl mt-6 leading-[1.05]">
-              A real home for <em className="italic" style={{ color: "var(--h-primary)" }}>our community's</em> seniors.
+              Adult family home in <em className="italic" style={{ color: "var(--h-primary)" }}>Mount Vernon, WA</em> — a real home for our community's seniors.
             </h1>
             <p className="mt-6 text-lg text-stone-600 max-w-xl">
-              Six private rooms. A 1:3 caregiver ratio. Home-cooked meals, a garden out back, and the quiet rhythms of family life — kept simple and dignified.
+              Licensed adult family home serving Mount Vernon, Burlington, Sedro-Woolley, Anacortes and Skagit County. Six private rooms, 1:3 caregiver ratio, 24-hour care, home-cooked meals, and a true residential setting.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link to="/heritage/tour" className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-white font-medium hover:brightness-110 transition" style={{ background: "var(--h-primary)" }}>
