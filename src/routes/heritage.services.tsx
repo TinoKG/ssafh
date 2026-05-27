@@ -5,11 +5,13 @@ import { ASSETS } from "@/lib/assets";
 export const Route = createFileRoute("/heritage/services")({
   head: () => ({
     meta: [
-      { title: "Services — Senior Services Adult Family Home" },
-      { name: "description", content: "Daily living support, meals, medication management, memory care, and 24-hour supervision in a six-resident home." },
-      { property: "og:title", content: "Our Services" },
+      { title: "Senior Care Services — Mount Vernon, WA Adult Family Home" },
+      { name: "description", content: "Senior care services in Mount Vernon, WA: daily living support, meals, medication management, dementia and memory care, and 24-hour supervision in a six-resident adult family home." },
+      { property: "og:title", content: "Senior Care Services — Mount Vernon, WA" },
+      { property: "og:url", content: "https://ssafh.lovable.app/heritage/services" },
       { property: "og:image", content: ASSETS.dining },
     ],
+    links: [{ rel: "canonical", href: "https://ssafh.lovable.app/heritage/services" }],
   }),
   component: Page,
 });

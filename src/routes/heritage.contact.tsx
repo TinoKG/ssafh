@@ -7,10 +7,12 @@ import { Phone, Mail, MapPin } from "lucide-react";
 export const Route = createFileRoute("/heritage/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Us — Senior Services Adult Family Home" },
-      { name: "description", content: "Reach our Mount Vernon adult family home by phone, email, or message. We respond within one business day." },
-      { property: "og:title", content: "Contact Senior Services Adult Family Home" },
+      { title: "Contact — Adult Family Home in Mount Vernon, WA" },
+      { name: "description", content: "Contact Senior Services Adult Family Home in Mount Vernon, WA. Call (360) 770-6434 or email us to schedule a tour. Serving Skagit County." },
+      { property: "og:title", content: "Contact — Adult Family Home in Mount Vernon, WA" },
+      { property: "og:url", content: "https://ssafh.lovable.app/heritage/contact" },
     ],
+    links: [{ rel: "canonical", href: "https://ssafh.lovable.app/heritage/contact" }],
   }),
   component: Page,
 });
