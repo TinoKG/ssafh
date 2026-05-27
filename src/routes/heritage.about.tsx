@@ -6,12 +6,14 @@ import { ASSETS } from "@/lib/assets";
 export const Route = createFileRoute("/heritage/about")({
   head: () => ({
     meta: [
-      { title: "About Us — Senior Services Adult Family Home" },
-      { name: "description", content: "Family-owned adult family home in Mount Vernon. Meet the owner, caregivers, and mission behind our home." },
-      { property: "og:title", content: "About Senior Services Adult Family Home" },
+      { title: "About — Adult Family Home Owner in Mount Vernon, WA" },
+      { name: "description", content: "Meet Joycen Garuiya and the caregivers behind Senior Services Adult Family Home — a family-owned, licensed adult family home in Mount Vernon, WA serving Skagit County." },
+      { property: "og:title", content: "About Senior Services Adult Family Home — Mount Vernon, WA" },
       { property: "og:description", content: "A small home, run by a family with deep Skagit Valley roots." },
+      { property: "og:url", content: "https://ssafh.lovable.app/heritage/about" },
       { property: "og:image", content: ASSETS.garden },
     ],
+    links: [{ rel: "canonical", href: "https://ssafh.lovable.app/heritage/about" }],
   }),
   component: Page,
 });

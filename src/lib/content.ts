@@ -12,7 +12,7 @@ export const VALUE_PROPS = [
   },
   {
     title: "Skagit Valley roots",
-    body: "Family-owned in Mount Vernon, with deep ties to the community and to the local medical providers we work with.",
+    body: "Family-owned in Mount Vernon, WA, with deep ties to Skagit County families and to the local medical providers across Burlington, Sedro-Woolley, and Anacortes.",
   },
 ] as const;
 

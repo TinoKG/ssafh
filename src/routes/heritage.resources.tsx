@@ -7,9 +7,27 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 export const Route = createFileRoute("/heritage/resources")({
   head: () => ({
     meta: [
-      { title: "Resources & FAQ — Senior Services Adult Family Home" },
-      { name: "description", content: "Guides, tour checklists, DSHS inspection links, and answers to questions families ask most." },
-      { property: "og:title", content: "Resources for Families" },
+      { title: "Adult Family Home FAQ & Resources — Mount Vernon, WA" },
+      { name: "description", content: "Answers about adult family homes in Mount Vernon and Skagit County — licensing, Medicaid, caregiver ratios, DSHS inspections, and tour checklists." },
+      { property: "og:title", content: "Adult Family Home FAQ & Resources — Mount Vernon, WA" },
+      { property: "og:url", content: "https://ssafh.lovable.app/heritage/resources" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://ssafh.lovable.app/heritage/resources" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: FAQ.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }),
+      },
     ],
   }),
   component: Page,
