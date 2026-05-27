@@ -10,7 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as PreviewRouteImport } from './routes/preview'
 import { Route as HeritageRouteImport } from './routes/heritage'
 import { Route as HeirloomRouteImport } from './routes/heirloom'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
@@ -31,9 +33,19 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PreviewRoute = PreviewRouteImport.update({
+  id: '/preview',
+  path: '/preview',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HeritageRoute = HeritageRouteImport.update({
@@ -112,7 +124,9 @@ export interface FileRoutesByFullPath {
   '/accessibility': typeof AccessibilityRoute
   '/heirloom': typeof HeirloomRouteWithChildren
   '/heritage': typeof HeritageRouteWithChildren
+  '/preview': typeof PreviewRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/heritage/about': typeof HeritageAboutRoute
   '/heritage/admissions': typeof HeritageAdmissionsRoute
@@ -128,7 +142,9 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/accessibility': typeof AccessibilityRoute
+  '/preview': typeof PreviewRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/heritage/about': typeof HeritageAboutRoute
   '/heritage/admissions': typeof HeritageAdmissionsRoute
@@ -147,7 +163,9 @@ export interface FileRoutesById {
   '/accessibility': typeof AccessibilityRoute
   '/heirloom': typeof HeirloomRouteWithChildren
   '/heritage': typeof HeritageRouteWithChildren
+  '/preview': typeof PreviewRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/heritage/about': typeof HeritageAboutRoute
   '/heritage/admissions': typeof HeritageAdmissionsRoute
@@ -167,7 +185,9 @@ export interface FileRouteTypes {
     | '/accessibility'
     | '/heirloom'
     | '/heritage'
+    | '/preview'
     | '/privacy'
+    | '/sitemap.xml'
     | '/terms'
     | '/heritage/about'
     | '/heritage/admissions'
@@ -183,7 +203,9 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/accessibility'
+    | '/preview'
     | '/privacy'
+    | '/sitemap.xml'
     | '/terms'
     | '/heritage/about'
     | '/heritage/admissions'
@@ -201,7 +223,9 @@ export interface FileRouteTypes {
     | '/accessibility'
     | '/heirloom'
     | '/heritage'
+    | '/preview'
     | '/privacy'
+    | '/sitemap.xml'
     | '/terms'
     | '/heritage/about'
     | '/heritage/admissions'
@@ -220,7 +244,9 @@ export interface RootRouteChildren {
   AccessibilityRoute: typeof AccessibilityRoute
   HeirloomRoute: typeof HeirloomRouteWithChildren
   HeritageRoute: typeof HeritageRouteWithChildren
+  PreviewRoute: typeof PreviewRoute
   PrivacyRoute: typeof PrivacyRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
 }
 
@@ -233,11 +259,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/privacy': {
       id: '/privacy'
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/preview': {
+      id: '/preview'
+      path: '/preview'
+      fullPath: '/preview'
+      preLoaderRoute: typeof PreviewRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/heritage': {
@@ -396,7 +436,9 @@ const rootRouteChildren: RootRouteChildren = {
   AccessibilityRoute: AccessibilityRoute,
   HeirloomRoute: HeirloomRouteWithChildren,
   HeritageRoute: HeritageRouteWithChildren,
+  PreviewRoute: PreviewRoute,
   PrivacyRoute: PrivacyRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport
