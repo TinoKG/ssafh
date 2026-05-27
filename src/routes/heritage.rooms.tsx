@@ -7,11 +7,13 @@ import { useState } from "react";
 export const Route = createFileRoute("/heritage/rooms")({
   head: () => ({
     meta: [
-      { title: "Our Rooms — Senior Services Adult Family Home" },
-      { name: "description", content: "Six private rooms with garden views, wood floors, and personalized touches. See live availability." },
-      { property: "og:title", content: "Our Rooms" },
+      { title: "Private Rooms — Adult Family Home in Mount Vernon, WA" },
+      { name: "description", content: "Six private rooms in our Mount Vernon, WA adult family home. Garden views, wood floors, and live availability for Skagit County families." },
+      { property: "og:title", content: "Private Rooms — Mount Vernon, WA Adult Family Home" },
+      { property: "og:url", content: "https://ssafh.lovable.app/heritage/rooms" },
       { property: "og:image", content: ASSETS.room },
     ],
+    links: [{ rel: "canonical", href: "https://ssafh.lovable.app/heritage/rooms" }],
   }),
   component: Page,
 });

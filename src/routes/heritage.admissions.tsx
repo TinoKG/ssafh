@@ -5,10 +5,12 @@ import { InquiryForm } from "@/components/shared/InquiryForm";
 export const Route = createFileRoute("/heritage/admissions")({
   head: () => ({
     meta: [
-      { title: "Admissions — Senior Services Adult Family Home" },
-      { name: "description", content: "A simple, five-step admissions process with full Washington State RCW 70.128.280 disclosures and clear payment options." },
-      { property: "og:title", content: "Admissions Process" },
+      { title: "Admissions — Adult Family Home in Mount Vernon, WA" },
+      { name: "description", content: "Five-step admissions process for our Mount Vernon, WA adult family home. Washington RCW 70.128.280 disclosures, Medicaid and private pay options for Skagit County families." },
+      { property: "og:title", content: "Admissions — Mount Vernon, WA Adult Family Home" },
+      { property: "og:url", content: "https://ssafh.lovable.app/heritage/admissions" },
     ],
+    links: [{ rel: "canonical", href: "https://ssafh.lovable.app/heritage/admissions" }],
   }),
   component: Page,
 });
