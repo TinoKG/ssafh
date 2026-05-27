@@ -1,3 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /admin
+Disallow: /preview
+Disallow: /heirloom
+
+Sitemap: https://ssafh.lovable.app/sitemap.xml
