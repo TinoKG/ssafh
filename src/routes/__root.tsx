@@ -120,8 +120,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               priceRange: "$$",
               address: {
                 "@type": "PostalAddress",
+                streetAddress: "3707 Trumpeter Ct",
                 addressLocality: "Mount Vernon",
                 addressRegion: "WA",
+                postalCode: "98273",
                 addressCountry: "US",
               },
               areaServed: [
