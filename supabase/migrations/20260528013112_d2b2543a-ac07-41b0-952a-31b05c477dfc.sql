@@ -1,0 +1,1 @@
+UPDATE public.site_settings SET address_line='3707 Trumpeter Ct', city='Mount Vernon', state='WA', zip='98273', updated_at=now() WHERE id=1;
