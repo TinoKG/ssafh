@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { roomsQueryOptions, settingsQueryOptions, testimonialsQueryOptions, statusLabel } from "@/lib/site-data";
+import { roomsQueryOptions, settingsQueryOptions, statusLabel } from "@/lib/site-data";
 import { VALUE_PROPS, SERVICES } from "@/lib/content";
 import { ASSETS } from "@/lib/assets";
+import { Gamepad2, Puzzle, Music, Palette, Flower2, Car, Ticket } from "lucide-react";
 
 export const Route = createFileRoute("/heirloom/")({
   head: () => ({
