@@ -20,7 +20,7 @@ export const Route = createFileRoute("/heirloom/")({
 function Page() {
   const { data: rooms = [] } = useQuery(roomsQueryOptions());
   const { data: s } = useQuery(settingsQueryOptions());
-  const { data: tms = [] } = useQuery(testimonialsQueryOptions());
+  
   const available = rooms.filter(r => r.status === "available").length;
   return (
     <>
@@ -106,17 +106,49 @@ function Page() {
         </div>
       </section>
 
-      {tms.length > 0 && (
-        <section className="py-20" style={{ background: "var(--hl-surface)" }}>
-          <div className="max-w-4xl mx-auto px-6 text-center">
-            <p className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--hl-muted)]">— From families</p>
-            <blockquote className="font-serif text-3xl md:text-4xl italic mt-8 leading-snug">
-              &ldquo;{tms[0].quote}&rdquo;
-            </blockquote>
-            <p className="mt-6 font-mono text-xs uppercase tracking-widest">— {tms[0].author}{tms[0].relation ? `, ${tms[0].relation}` : ""}</p>
+      <section className="py-20" style={{ background: "var(--hl-surface)" }}>
+        <div className="max-w-6xl mx-auto px-6">
+          <p className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--hl-muted)]">— Daily life</p>
+          <h2 className="font-serif text-4xl md:text-5xl mt-3 mb-12">Activities &amp; Engagement</h2>
+
+          <p className="font-mono text-xs uppercase tracking-widest text-[var(--hl-muted)] mb-6">Indoor</p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <div className="p-6 bg-white" style={{ border: "1px solid var(--hl-border)" }}>
+              <Gamepad2 className="size-5 mb-4 text-[var(--hl-primary)]" />
+              <h4 className="font-serif text-xl">Games</h4>
+            </div>
+            <div className="p-6 bg-white" style={{ border: "1px solid var(--hl-border)" }}>
+              <Puzzle className="size-5 mb-4 text-[var(--hl-primary)]" />
+              <h4 className="font-serif text-xl">Puzzles</h4>
+            </div>
+            <div className="p-6 bg-white" style={{ border: "1px solid var(--hl-border)" }}>
+              <Music className="size-5 mb-4 text-[var(--hl-primary)]" />
+              <h4 className="font-serif text-xl">Music</h4>
+            </div>
+            <div className="p-6 bg-white" style={{ border: "1px solid var(--hl-border)" }}>
+              <Palette className="size-5 mb-4 text-[var(--hl-primary)]" />
+              <h4 className="font-serif text-xl">Painting &amp; Coloring</h4>
+            </div>
           </div>
-        </section>
-      )}
+
+          <p className="font-mono text-xs uppercase tracking-widest text-[var(--hl-muted)] mb-6">Outdoor</p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="p-6 bg-white" style={{ border: "1px solid var(--hl-border)" }}>
+              <Flower2 className="size-5 mb-4 text-[var(--hl-primary)]" />
+              <h4 className="font-serif text-xl">Gardening</h4>
+            </div>
+            <div className="p-6 bg-white" style={{ border: "1px solid var(--hl-border)" }}>
+              <Car className="size-5 mb-4 text-[var(--hl-primary)]" />
+              <h4 className="font-serif text-xl">Docking Bay &amp; Recovery Café trips</h4>
+              <p className="mt-2 text-sm text-[var(--hl-muted)]">Outdoor entertainment &amp; performances</p>
+            </div>
+            <div className="p-6 bg-white" style={{ border: "1px solid var(--hl-border)" }}>
+              <Ticket className="size-5 mb-4 text-[var(--hl-primary)]" />
+              <h4 className="font-serif text-xl">Bingo</h4>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="max-w-5xl mx-auto px-6 py-20 text-center">
         <p className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--hl-muted)]">— Licensed & compliant</p>
