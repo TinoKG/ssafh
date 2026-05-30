@@ -28,7 +28,7 @@ export const Route = createFileRoute("/heritage/")({
 function Page() {
   const { data: rooms = [] } = useQuery(roomsQueryOptions());
   const { data: s } = useQuery(settingsQueryOptions());
-  const { data: tms = [] } = useQuery(testimonialsQueryOptions());
+  
   return (
     <>
       <section className="relative">
