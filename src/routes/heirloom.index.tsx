@@ -36,8 +36,8 @@ function Page() {
               Six private rooms. One caregiver to every three residents. Three home-cooked meals. A garden out back. We are small, on purpose.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
-              <Link to="/heirloom/tour" className="px-7 py-3 text-white font-mono text-sm uppercase tracking-[0.18em]" style={{ background: "var(--hl-ink)" }}>Book a tour</Link>
-              <Link to="/heirloom/rooms" className="px-7 py-3 font-mono text-sm uppercase tracking-[0.18em]" style={{ border: "1px solid var(--hl-ink)" }}>See rooms</Link>
+              <Link to={"/heirloom/tour" as any} className="px-7 py-3 text-white font-mono text-sm uppercase tracking-[0.18em]" style={{ background: "var(--hl-ink)" }}>Book a tour</Link>
+              <Link to={"/heirloom/rooms" as any} className="px-7 py-3 font-mono text-sm uppercase tracking-[0.18em]" style={{ border: "1px solid var(--hl-ink)" }}>See rooms</Link>
             </div>
           </div>
           <div className="text-right">
@@ -69,7 +69,7 @@ function Page() {
               <p className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--hl-muted)]">— Services</p>
               <h2 className="font-serif text-4xl md:text-5xl mt-3">Care, made personal.</h2>
             </div>
-            <Link to="/heirloom/services" className="font-mono text-xs uppercase tracking-[0.18em] underline">All services</Link>
+            <Link to={"/heirloom/services" as any} className="font-mono text-xs uppercase tracking-[0.18em] underline">All services</Link>
           </div>
           <div className="grid md:grid-cols-2 gap-x-10 gap-y-10">
             {SERVICES.slice(0,4).map((s, i) => (
@@ -88,11 +88,11 @@ function Page() {
       <section className="max-w-7xl mx-auto px-6 py-20">
         <div className="flex items-end justify-between flex-wrap gap-4 mb-10">
           <h2 className="font-serif text-4xl md:text-5xl">Rooms</h2>
-          <Link to="/heirloom/rooms" className="font-mono text-xs uppercase tracking-[0.18em] underline">All rooms</Link>
+          <Link to={"/heirloom/rooms" as any} className="font-mono text-xs uppercase tracking-[0.18em] underline">All rooms</Link>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {rooms.slice(0,3).map(r => (
-            <Link key={r.id} to="/heirloom/rooms/$slug" params={{ slug: r.slug }} className="block group">
+            <Link key={r.id} to={"/heirloom/rooms/$slug" as any} params={{ slug: r.slug } as any} className="block group">
               <div className="aspect-[4/5] overflow-hidden">
                 <img src={r.photos[0] ?? ASSETS.room} alt={r.name} className="w-full h-full object-cover group-hover:scale-[1.02] transition" loading="lazy" />
               </div>
