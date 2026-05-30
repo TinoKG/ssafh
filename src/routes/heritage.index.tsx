@@ -1,9 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { roomsQueryOptions, settingsQueryOptions, testimonialsQueryOptions, statusLabel } from "@/lib/site-data";
+import { roomsQueryOptions, settingsQueryOptions, statusLabel } from "@/lib/site-data";
 import { VALUE_PROPS, SERVICES, TRUST_BADGES } from "@/lib/content";
 import { ASSETS } from "@/lib/assets";
-import { ArrowRight, Heart, Home, Users, ShieldCheck } from "lucide-react";
+import {
+  ArrowRight, Heart, Home, Users, ShieldCheck,
+  Gamepad2, Puzzle, Music, Palette, Flower2, Car, Ticket,
+} from "lucide-react";
 
 export const Route = createFileRoute("/heritage/")({
   head: () => ({
@@ -25,7 +28,7 @@ export const Route = createFileRoute("/heritage/")({
 function Page() {
   const { data: rooms = [] } = useQuery(roomsQueryOptions());
   const { data: s } = useQuery(settingsQueryOptions());
-  const { data: tms = [] } = useQuery(testimonialsQueryOptions());
+  
   return (
     <>
       <section className="relative">
@@ -123,22 +126,63 @@ function Page() {
         </div>
       </section>
 
-      {tms.length > 0 && (
-        <section className="py-16 lg:py-24" style={{ background: "var(--h-surface)" }}>
-          <div className="max-w-7xl mx-auto px-6">
-            <p className="text-xs uppercase tracking-[0.25em] mb-3" style={{ color: "var(--h-primary)" }}>From families</p>
-            <h2 className="font-display text-4xl md:text-5xl mb-12">In their own words.</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {tms.slice(0, 3).map((t) => (
-                <figure key={t.id} className="p-8 rounded-2xl bg-white" style={{ border: "1px solid var(--h-border)" }}>
-                  <blockquote className="font-display text-xl leading-snug">&ldquo;{t.quote}&rdquo;</blockquote>
-                  <figcaption className="mt-6 text-sm text-stone-600">— {t.author}{t.relation ? `, ${t.relation}` : ""}</figcaption>
-                </figure>
-              ))}
+      <section className="py-16 lg:py-24" style={{ background: "var(--h-surface)" }}>
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs uppercase tracking-[0.25em] mb-3" style={{ color: "var(--h-primary)" }}>Daily life</p>
+          <h2 className="font-display text-4xl md:text-5xl mb-12">Activities & Engagement</h2>
+
+          <h3 className="font-display text-2xl mb-6">Indoor</h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <div className="p-6 rounded-xl bg-white" style={{ border: "1px solid var(--h-border)" }}>
+              <div className="size-10 rounded-full grid place-items-center mb-4" style={{ background: "var(--h-primary-soft)" }}>
+                <Gamepad2 className="size-5" style={{ color: "var(--h-primary)" }} />
+              </div>
+              <h4 className="font-display text-lg">Games</h4>
+            </div>
+            <div className="p-6 rounded-xl bg-white" style={{ border: "1px solid var(--h-border)" }}>
+              <div className="size-10 rounded-full grid place-items-center mb-4" style={{ background: "var(--h-primary-soft)" }}>
+                <Puzzle className="size-5" style={{ color: "var(--h-primary)" }} />
+              </div>
+              <h4 className="font-display text-lg">Puzzles</h4>
+            </div>
+            <div className="p-6 rounded-xl bg-white" style={{ border: "1px solid var(--h-border)" }}>
+              <div className="size-10 rounded-full grid place-items-center mb-4" style={{ background: "var(--h-primary-soft)" }}>
+                <Music className="size-5" style={{ color: "var(--h-primary)" }} />
+              </div>
+              <h4 className="font-display text-lg">Music</h4>
+            </div>
+            <div className="p-6 rounded-xl bg-white" style={{ border: "1px solid var(--h-border)" }}>
+              <div className="size-10 rounded-full grid place-items-center mb-4" style={{ background: "var(--h-primary-soft)" }}>
+                <Palette className="size-5" style={{ color: "var(--h-primary)" }} />
+              </div>
+              <h4 className="font-display text-lg">Painting &amp; Coloring</h4>
             </div>
           </div>
-        </section>
-      )}
+
+          <h3 className="font-display text-2xl mb-6">Outdoor</h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="p-6 rounded-xl bg-white" style={{ border: "1px solid var(--h-border)" }}>
+              <div className="size-10 rounded-full grid place-items-center mb-4" style={{ background: "var(--h-primary-soft)" }}>
+                <Flower2 className="size-5" style={{ color: "var(--h-primary)" }} />
+              </div>
+              <h4 className="font-display text-lg">Gardening</h4>
+            </div>
+            <div className="p-6 rounded-xl bg-white" style={{ border: "1px solid var(--h-border)" }}>
+              <div className="size-10 rounded-full grid place-items-center mb-4" style={{ background: "var(--h-primary-soft)" }}>
+                <Car className="size-5" style={{ color: "var(--h-primary)" }} />
+              </div>
+              <h4 className="font-display text-lg">Docking Bay &amp; Recovery Café trips</h4>
+              <p className="text-sm text-stone-500 mt-1">Outdoor entertainment &amp; performances</p>
+            </div>
+            <div className="p-6 rounded-xl bg-white" style={{ border: "1px solid var(--h-border)" }}>
+              <div className="size-10 rounded-full grid place-items-center mb-4" style={{ background: "var(--h-primary-soft)" }}>
+                <Ticket className="size-5" style={{ color: "var(--h-primary)" }} />
+              </div>
+              <h4 className="font-display text-lg">Bingo</h4>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="max-w-7xl mx-auto px-6 py-16">
         <div className="rounded-2xl p-8 md:p-12 flex flex-wrap items-center gap-6 justify-between" style={{ background: "var(--h-primary)", color: "white" }}>
