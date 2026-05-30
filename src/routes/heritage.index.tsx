@@ -1,9 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { roomsQueryOptions, settingsQueryOptions, testimonialsQueryOptions, statusLabel } from "@/lib/site-data";
+import { roomsQueryOptions, settingsQueryOptions, statusLabel } from "@/lib/site-data";
 import { VALUE_PROPS, SERVICES, TRUST_BADGES } from "@/lib/content";
 import { ASSETS } from "@/lib/assets";
-import { ArrowRight, Heart, Home, Users, ShieldCheck } from "lucide-react";
+import {
+  ArrowRight, Heart, Home, Users, ShieldCheck,
+  Gamepad2, Puzzle, Music, Palette, Flower2, Car, Ticket,
+} from "lucide-react";
 
 export const Route = createFileRoute("/heritage/")({
   head: () => ({
