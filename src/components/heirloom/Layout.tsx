@@ -6,7 +6,7 @@ import { useState } from "react";
 
 function NavLink({ to, label }: { to: string; label: string }) {
   return (
-    <Link to={to} className="text-sm text-[var(--hl-ink)] hover:opacity-60 transition" activeProps={{ className: "underline underline-offset-4" }}>
+    <Link to={to as any} className="text-sm text-[var(--hl-ink)] hover:opacity-60 transition" activeProps={{ className: "underline underline-offset-4" }}>
       {label}
     </Link>
   );
@@ -28,7 +28,7 @@ function Header() {
           <NavLink to="/heirloom/admissions" label="Admissions" />
           <NavLink to="/heirloom/resources" label="Resources" />
           <NavLink to="/heirloom/contact" label="Contact" />
-          <Link to="/heirloom/tour" className="inline-flex items-center gap-2 px-5 py-2.5 text-white text-sm font-mono uppercase tracking-widest hover:brightness-110" style={{ background: "var(--hl-ink)" }}>
+          <Link to={"/heirloom/tour" as any} className="inline-flex items-center gap-2 px-5 py-2.5 text-white text-sm font-mono uppercase tracking-widest hover:brightness-110" style={{ background: "var(--hl-ink)" }}>
             Book a tour
           </Link>
         </nav>
@@ -39,7 +39,7 @@ function Header() {
       {open && (
         <div className="lg:hidden px-6 py-4 flex flex-col gap-3" style={{ borderTop: "1px solid var(--hl-border)", background: "var(--hl-bg)" }}>
           {[["/heirloom/about","About"],["/heirloom/rooms","Rooms"],["/heirloom/services","Services"],["/heirloom/admissions","Admissions"],["/heirloom/resources","Resources"],["/heirloom/contact","Contact"],["/heirloom/tour","Book a tour"]].map(([to,label]) => (
-            <Link key={to} to={to} className="py-2 text-base" onClick={() => setOpen(false)}>{label}</Link>
+            <Link key={to} to={to as any} className="py-2 text-base" onClick={() => setOpen(false)}>{label}</Link>
           ))}
         </div>
       )}
@@ -66,9 +66,9 @@ function Footer() {
         <div>
           <p className="text-xs font-mono uppercase tracking-[0.18em] text-[var(--hl-muted)] mb-3">Site</p>
           <ul className="space-y-2 text-sm">
-            <li><Link to="/heirloom/rooms">Rooms</Link></li>
-            <li><Link to="/heirloom/services">Services</Link></li>
-            <li><Link to="/heirloom/admissions">Admissions</Link></li>
+            <li><Link to={"/heirloom/rooms" as any}>Rooms</Link></li>
+            <li><Link to={"/heirloom/services" as any}>Services</Link></li>
+            <li><Link to={"/heirloom/admissions" as any}>Admissions</Link></li>
             <li><Link to="/privacy">Privacy</Link></li>
             <li><Link to="/accessibility">Accessibility</Link></li>
             <li><Link to="/terms">Terms</Link></li>
@@ -92,7 +92,7 @@ function MobileBar() {
       <a href={`tel:${s?.phone ?? ""}`} className="min-h-[44px] flex items-center justify-center gap-2 text-sm font-mono uppercase tracking-widest" style={{ border: "1px solid var(--hl-border)" }}>
         <Phone className="size-4" /> Call
       </a>
-      <Link to="/heirloom/tour" className="min-h-[44px] flex items-center justify-center text-white text-sm font-mono uppercase tracking-widest" style={{ background: "var(--hl-ink)" }}>Book a tour</Link>
+      <Link to={"/heirloom/tour" as any} className="min-h-[44px] flex items-center justify-center text-white text-sm font-mono uppercase tracking-widest" style={{ background: "var(--hl-ink)" }}>Book a tour</Link>
     </div>
   );
 }
