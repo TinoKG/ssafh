@@ -31,7 +31,7 @@ function Page() {
   return (
     <div className="max-w-7xl mx-auto px-6 py-16 lg:py-24">
       <p className="text-xs uppercase tracking-[0.25em]" style={{ color: "var(--h-primary)" }}>Rooms</p>
-      <h1 className="font-display text-5xl md:text-6xl mt-4">Six rooms. Each one a home.</h1>
+      <h1 className="font-display text-5xl md:text-6xl mt-4">Five rooms. Each one a home.</h1>
       <p className="mt-6 text-lg text-stone-600 max-w-2xl">Every room has its own character — a corner window, a reading nook, a view of the back garden. Availability is updated by the owner directly.</p>
 
       <div className="flex flex-wrap gap-2 mt-10">
