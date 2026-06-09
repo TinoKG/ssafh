@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { roomQueryOptions, roomsQueryOptions, statusLabel } from "@/lib/site-data";
 import { ASSETS } from "@/lib/assets";
+import { getRoomMedia } from "@/lib/room-media";
 import { InquiryForm } from "@/components/shared/InquiryForm";
 import { Check } from "lucide-react";
 
@@ -9,7 +10,7 @@ export const Route = createFileRoute("/heritage/rooms/$slug")({
   loader: ({ context, params }) => context.queryClient.ensureQueryData(roomQueryOptions(params.slug)),
   head: ({ params }) => ({
     meta: [
-      { title: `${params.slug.replace(/-/g, " ")} — Senior Services Adult Family Home` },
+      { title: `${params.slug.replace("room-", "Room ").replace(/-/g, " ")} — Senior Services Adult Family Home` },
       { property: "og:image", content: ASSETS.room },
     ],
   }),
@@ -29,7 +30,8 @@ function Page() {
   const { data: all = [] } = useQuery(roomsQueryOptions());
   if (!room) throw notFound();
   const others = all.filter((r) => r.slug !== slug).slice(0, 3);
-  const photos = room.photos.length ? room.photos : [ASSETS.room];
+  const media = getRoomMedia(slug).filter((m) => m.type === "image");
+  const photos = media.length ? media.map((m) => m.url) : (room.photos.length ? room.photos : [ASSETS.room]);
   return (
     <div className="max-w-7xl mx-auto px-6 py-12 lg:py-16">
       <Link to="/heritage/rooms" className="text-sm text-stone-600 underline">← All rooms</Link>
