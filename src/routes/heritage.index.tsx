@@ -3,6 +3,9 @@ import { useQuery } from "@tanstack/react-query";
 import { roomsQueryOptions, settingsQueryOptions, statusLabel } from "@/lib/site-data";
 import { VALUE_PROPS, SERVICES, TRUST_BADGES } from "@/lib/content";
 import { ASSETS } from "@/lib/assets";
+import { getRoomMedia } from "@/lib/room-media";
+import { getCommonAreas, getCommonAreaMedia } from "@/lib/common-areas";
+import { RoomTileSlideshow } from "@/components/heritage/RoomTileSlideshow";
 import {
   ArrowRight, Heart, Home, Users, ShieldCheck,
   Gamepad2, Puzzle, Music, Palette, Flower2, Car, Ticket,
