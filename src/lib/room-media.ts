@@ -31,6 +31,9 @@ for (const slug of Object.keys(bySlug)) {
   bySlug[slug].sort((a, b) => a.name.localeCompare(b.name));
 }
 
+// Asset folders now use the normalized slugs (room-1, room-2, room-3, porch, backyard)
+// so media is discovered directly from those directories.
+
 export function getRoomMedia(slug: string): RoomMedia[] {
   const list = bySlug[slug];
   if (list && list.length > 0) return list;

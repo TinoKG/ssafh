@@ -147,12 +147,13 @@ VALUES (1,
 
 -- Seed: rooms
 INSERT INTO public.rooms (slug, name, description, sqft, amenities, status, sort_order) VALUES
-('room-cedar',    'The Cedar Room',    'A bright, south-facing private suite with a garden view and a generous reading nook.', 180, '["Private bath","Garden view","Queen bed","TV mount","Wi-Fi","Closet"]'::jsonb, 'available', 1),
-('room-willow',   'The Willow Room',   'A warm corner room with original wood floors and a hand-built window seat.',          165, '["Shared bath","Window seat","Twin bed","Wi-Fi","Closet"]'::jsonb,                'waitlist',  2),
-('room-spruce',   'The Spruce Room',   'A quiet ground-floor room with easy access to the back porch and herb garden.',        175, '["Private bath","Ground floor","Twin bed","Wi-Fi","Walk-in closet"]'::jsonb,      'available', 3),
-('room-meadow',   'The Meadow Room',   'A serene room overlooking the meadow, with morning light and a built-in bookshelf.',   170, '["Shared bath","Meadow view","Queen bed","Wi-Fi","Bookshelf"]'::jsonb,            'occupied',  4),
-('room-orchard',  'The Orchard Room',  'A tucked-away room with views of the apple orchard and a private writing desk.',       160, '["Shared bath","Orchard view","Twin bed","TV mount","Wi-Fi"]'::jsonb,             'available', 5),
-('room-cascade',  'The Cascade Room',  'Our largest suite with a private bath, a sitting alcove, and skyline views.',          210, '["Private bath","Sitting alcove","Queen bed","TV mount","Wi-Fi","Walk-in closet"]'::jsonb, 'waitlist', 6);
+-- Seed: rooms (renamed to normalized slugs and unified descriptions)
+INSERT INTO public.rooms (slug, name, description, sqft, amenities, status, sort_order) VALUES
+('room-1', 'Room 1', 'Twin bed, bedside table, chair, clothing rack, shared bathroom, and Wi-Fi.', 180, '["Shared bath","Twin bed","Bedside table","Chair","Clothing rack","Wi-Fi"]'::jsonb, 'available', 1),
+('room-2', 'Room 2', 'Twin bed, bedside table, chair, clothing rack, shared bathroom, and Wi-Fi.', 165, '["Shared bath","Twin bed","Bedside table","Chair","Clothing rack","Wi-Fi"]'::jsonb, 'waitlist', 2),
+('room-3', 'Room 3', 'Twin bed, bedside table, chair, clothing rack, shared bathroom, and Wi-Fi.', 175, '["Shared bath","Twin bed","Bedside table","Chair","Clothing rack","Wi-Fi"]'::jsonb, 'available', 3),
+('porch', 'Porch', 'Porch area with seating, shared bathroom access, and Wi-Fi.', 170, '["Shared bath","Seating","Chair","Clothing rack","Wi-Fi"]'::jsonb, 'occupied', 4),
+('backyard', 'Backyard', 'Backyard area with seating, shared bathroom access, and Wi-Fi.', 160, '["Shared bath","Seating","Chair","Clothing rack","Wi-Fi"]'::jsonb, 'available', 5);
 
 -- Seed: testimonials
 INSERT INTO public.testimonials (quote, author, relation, sort_order) VALUES
