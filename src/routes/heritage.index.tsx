@@ -208,3 +208,35 @@ function Page() {
     </>
   );
 }
+
+function CommonAreasSection() {
+  const areas = getCommonAreas();
+  if (areas.length === 0) return null;
+  return (
+    <section className="max-w-7xl mx-auto px-6 py-16 lg:py-24">
+      <div className="flex items-end justify-between flex-wrap gap-4 mb-10">
+        <div>
+          <p className="text-xs uppercase tracking-[0.25em]" style={{ color: "var(--h-primary)" }}>Shared spaces</p>
+          <h2 className="font-display text-4xl md:text-5xl mt-2">Common areas</h2>
+          <p className="mt-3 text-stone-600 max-w-2xl">The kitchen, dining room, sitting room, and porch — the spaces where life happens together every day.</p>
+        </div>
+      </div>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {areas.map((a) => {
+          const media = getCommonAreaMedia(a.slug);
+          return (
+            <div key={a.slug} className="group rounded-xl overflow-hidden bg-white" style={{ border: "1px solid var(--h-border)" }}>
+              <div className="relative aspect-[4/3] overflow-hidden bg-stone-100">
+                <RoomTileSlideshow media={media} alt={a.name} />
+              </div>
+              <div className="p-5">
+                <h3 className="font-display text-xl">{a.name}</h3>
+                <p className="text-sm text-stone-600 mt-1">{a.description}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
