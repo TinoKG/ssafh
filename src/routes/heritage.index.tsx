@@ -109,10 +109,12 @@ function Page() {
           <Link to="/heritage/rooms" className="text-sm font-medium underline">View all rooms →</Link>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {rooms.slice(0, 3).map((r) => (
+          {rooms.slice(0, 3).map((r) => {
+            const media = getRoomMedia(r.slug);
+            return (
             <Link key={r.id} to="/heritage/rooms/$slug" params={{ slug: r.slug }} className="group rounded-xl overflow-hidden bg-white block" style={{ border: "1px solid var(--h-border)" }}>
-              <div className="aspect-[4/3] overflow-hidden bg-stone-100">
-                <img src={r.photos[0] ?? ASSETS.room} alt={r.name} className="w-full h-full object-cover group-hover:scale-105 transition" loading="lazy" />
+              <div className="relative aspect-[4/3] overflow-hidden bg-stone-100">
+                <RoomTileSlideshow media={media} alt={r.name} />
               </div>
               <div className="p-5">
                 <div className="flex items-center justify-between">
@@ -125,9 +127,11 @@ function Page() {
                 <p className="text-sm text-stone-500 mt-1">{r.sqft ? `${r.sqft} sq ft` : ""}</p>
               </div>
             </Link>
-          ))}
+          );})}
         </div>
       </section>
+
+      <CommonAreasSection />
 
       <section className="py-16 lg:py-24" style={{ background: "var(--h-surface)" }}>
         <div className="max-w-7xl mx-auto px-6">
