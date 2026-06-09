@@ -65,12 +65,13 @@ function Header() {
       {open && (
         <div className="lg:hidden border-t border-stone-200 px-6 py-4 flex flex-col gap-3 bg-white">
           {[
-            ["/heritage/about", "About"],
-            ["/heritage/rooms", "Rooms"],
+            ["/heritage", "Home"],
             ["/heritage/services", "Services"],
-            ["/heritage/admissions", "Admissions"],
+            ["/heritage/rooms", "Rooms"],
             ["/heritage/resources", "Resources"],
+            ["/heritage/admissions", "Admissions"],
             ["/heritage/contact", "Contact"],
+            ["/heritage/about", "About"],
             ["/heritage/tour", "Schedule a Tour"],
           ].map(([to, label]) => (
             <Link key={to} to={to} className="py-2 text-base" onClick={() => setOpen(false)}>
