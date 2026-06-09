@@ -4,12 +4,21 @@ import { settingsQueryOptions } from "@/lib/site-data";
 import { Leaf, Phone, MapPin, Mail, Menu } from "lucide-react";
 import { useState } from "react";
 
-function NavLink({ to, label }: { to: string; label: string }) {
+function NavLink({
+  to,
+  label,
+  exact,
+}: {
+  to: string;
+  label: string;
+  exact?: boolean;
+}) {
   return (
     <Link
       to={to}
       className="text-sm font-medium text-stone-600 hover:text-[var(--h-ink)] transition-colors"
       activeProps={{ className: "text-[var(--h-primary)]" }}
+      activeOptions={{ exact }}
     >
       {label}
     </Link>
