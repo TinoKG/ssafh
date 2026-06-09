@@ -4,12 +4,21 @@ import { settingsQueryOptions } from "@/lib/site-data";
 import { Leaf, Phone, MapPin, Mail, Menu } from "lucide-react";
 import { useState } from "react";
 
-function NavLink({ to, label }: { to: string; label: string }) {
+function NavLink({
+  to,
+  label,
+  exact,
+}: {
+  to: string;
+  label: string;
+  exact?: boolean;
+}) {
   return (
     <Link
       to={to}
       className="text-sm font-medium text-stone-600 hover:text-[var(--h-ink)] transition-colors"
       activeProps={{ className: "text-[var(--h-primary)]" }}
+      activeOptions={{ exact }}
     >
       {label}
     </Link>
@@ -29,12 +38,13 @@ function Header() {
           <span className="font-display text-xl font-semibold">{s?.business_name ?? "Senior Services Adult Family Home"}</span>
         </Link>
         <nav className="hidden lg:flex items-center gap-8" aria-label="Primary">
-          <NavLink to="/heritage/about" label="About" />
-          <NavLink to="/heritage/rooms" label="Rooms" />
+          <NavLink to="/heritage" label="Home" exact />
           <NavLink to="/heritage/services" label="Services" />
-          <NavLink to="/heritage/admissions" label="Admissions" />
+          <NavLink to="/heritage/rooms" label="Rooms" />
           <NavLink to="/heritage/resources" label="Resources" />
+          <NavLink to="/heritage/admissions" label="Admissions" />
           <NavLink to="/heritage/contact" label="Contact" />
+          <NavLink to="/heritage/about" label="About" />
           <Link
             to="/heritage/tour"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-white text-sm font-medium hover:brightness-110 transition"
@@ -55,12 +65,13 @@ function Header() {
       {open && (
         <div className="lg:hidden border-t border-stone-200 px-6 py-4 flex flex-col gap-3 bg-white">
           {[
-            ["/heritage/about", "About"],
-            ["/heritage/rooms", "Rooms"],
+            ["/heritage", "Home"],
             ["/heritage/services", "Services"],
-            ["/heritage/admissions", "Admissions"],
+            ["/heritage/rooms", "Rooms"],
             ["/heritage/resources", "Resources"],
+            ["/heritage/admissions", "Admissions"],
             ["/heritage/contact", "Contact"],
+            ["/heritage/about", "About"],
             ["/heritage/tour", "Schedule a Tour"],
           ].map(([to, label]) => (
             <Link key={to} to={to} className="py-2 text-base" onClick={() => setOpen(false)}>
