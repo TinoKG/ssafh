@@ -42,6 +42,10 @@ export function getCommonAreaMedia(slug: string): RoomMedia[] {
   return bySlug[slug] ?? [];
 }
 
+export function getCommonArea(slug: string): CommonArea | undefined {
+  return COMMON_AREAS.find((area) => area.slug === slug);
+}
+
 export function getCommonAreas(): CommonArea[] {
   return COMMON_AREAS.filter((a) => getCommonAreaMedia(a.slug).length > 0);
 }
