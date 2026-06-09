@@ -1,4 +1,4 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { roomsQueryOptions, settingsQueryOptions, statusLabel } from "@/lib/site-data";
 import { VALUE_PROPS, SERVICES, TRUST_BADGES } from "@/lib/content";
@@ -212,7 +212,6 @@ function Page() {
 }
 
 function CommonAreasSection() {
-  const navigate = useNavigate();
   const areas = getCommonAreas();
   const [openSlug, setOpenSlug] = useState<string | null>(null);
   const activeArea = openSlug ? getCommonArea(openSlug) : undefined;
@@ -254,17 +253,7 @@ function CommonAreasSection() {
                 )}
               </button>
               <div className="p-5">
-                <div className="flex items-center justify-between gap-3">
-                  <h3 className="font-display text-xl">{a.name}</h3>
-                  <button
-                    type="button"
-                    onClick={() => navigate({ to: "/heritage/rooms" })}
-                    className="text-sm underline shrink-0"
-                    style={{ color: "var(--h-primary)" }}
-                  >
-                    Explore →
-                  </button>
-                </div>
+                <h3 className="font-display text-xl">{a.name}</h3>
                 <p className="text-sm text-stone-600 mt-1">{a.description}</p>
               </div>
             </div>
