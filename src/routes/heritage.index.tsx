@@ -56,7 +56,7 @@ function Page() {
             </div>
           </div>
           <div className="relative">
-              <img src={ASSETS.hero} alt="Front exterior of Senior Services Adult Family Home with landscaped lawn and accessible entry" className="rounded-2xl shadow-xl w-full aspect-[4/5] object-cover" width={1600} height={1100} />
+              <img src={ASSETS.hero} alt="Heritage adult family home exterior with apple tree in the front yard" className="rounded-2xl shadow-xl w-full aspect-[4/5] object-cover" width={1600} height={1100} />
             <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-lg p-5 max-w-[240px] hidden md:block" style={{ border: "1px solid var(--h-border)" }}>
               <p className="text-xs uppercase tracking-widest text-stone-500">Today</p>
               <p className="font-display text-2xl mt-1">{rooms.filter(r=>r.status==="available").length} rooms available</p>

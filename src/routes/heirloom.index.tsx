@@ -47,7 +47,7 @@ function Page() {
             <p className="font-mono text-xs uppercase tracking-widest text-[var(--hl-muted)] mt-2">rooms available</p>
           </div>
         </div>
-        <img src={ASSETS.hero} alt="Senior Services Adult Family Home exterior with mature tree, ramp, and front lawn" className="mt-16 w-full aspect-[21/9] object-cover" width={1600} height={700} />
+        <img src={ASSETS.hero} alt="Heritage adult family home exterior with apple tree in the front yard" className="mt-16 w-full aspect-[21/9] object-cover" width={1600} height={700} />
       </section>
 
       <section className="max-w-6xl mx-auto px-6 py-20">
