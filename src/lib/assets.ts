@@ -1,4 +1,4 @@
-import hero from "@/assets/exterior-front.jpg";
+import hero from "@/assets/home-hero-apple-tree.jpg";
 import roomPlaceholder from "@/assets/room-placeholder.jpg";
 import dining from "@/assets/exterior-entrance.jpg";
 import garden from "@/assets/exterior-garden.jpg";
