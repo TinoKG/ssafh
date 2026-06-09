@@ -1,15 +1,17 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { roomsQueryOptions, settingsQueryOptions, statusLabel } from "@/lib/site-data";
 import { VALUE_PROPS, SERVICES, TRUST_BADGES } from "@/lib/content";
 import { ASSETS } from "@/lib/assets";
 import { getRoomMedia } from "@/lib/room-media";
-import { getCommonAreas, getCommonAreaMedia } from "@/lib/common-areas";
+import { getCommonArea, getCommonAreas, getCommonAreaMedia } from "@/lib/common-areas";
 import { RoomTileSlideshow } from "@/components/heritage/RoomTileSlideshow";
+import { RoomMediaDialog } from "@/components/heritage/RoomMediaDialog";
 import {
   ArrowRight, Heart, Home, Users, ShieldCheck,
-  Gamepad2, Puzzle, Music, Palette, Flower2, Car, Ticket,
+  Gamepad2, Puzzle, Music, Palette, Flower2, Car, Ticket, Images,
 } from "lucide-react";
+import { useState } from "react";
 
 export const Route = createFileRoute("/heritage/")({
   head: () => ({
@@ -210,7 +212,12 @@ function Page() {
 }
 
 function CommonAreasSection() {
+  const navigate = useNavigate();
   const areas = getCommonAreas();
+  const [openSlug, setOpenSlug] = useState<string | null>(null);
+  const activeArea = openSlug ? getCommonArea(openSlug) : undefined;
+  const activeMedia = openSlug ? getCommonAreaMedia(openSlug) : [];
+
   if (areas.length === 0) return null;
   return (
     <section className="max-w-7xl mx-auto px-6 py-16 lg:py-24">
@@ -224,19 +231,55 @@ function CommonAreasSection() {
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {areas.map((a) => {
           const media = getCommonAreaMedia(a.slug);
+          const mediaCount = media.length;
           return (
-            <div key={a.slug} className="group rounded-xl overflow-hidden bg-white" style={{ border: "1px solid var(--h-border)" }}>
-              <div className="relative aspect-[4/3] overflow-hidden bg-stone-100">
+            <div key={a.slug} className="rounded-xl overflow-hidden bg-white" style={{ border: "1px solid var(--h-border)" }}>
+              <button
+                type="button"
+                onClick={() => setOpenSlug(a.slug)}
+                className="group relative aspect-[4/3] overflow-hidden bg-stone-100 block w-full text-left"
+                aria-label={`Open ${mediaCount} photos for ${a.name}`}
+              >
                 <RoomTileSlideshow media={media} alt={a.name} />
-              </div>
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition flex items-center justify-center">
+                  <span className="opacity-0 group-hover:opacity-100 transition px-3 py-1.5 rounded-full bg-white/95 text-stone-900 text-xs font-medium inline-flex items-center gap-1.5">
+                    <Images className="size-3.5" />
+                    View gallery
+                  </span>
+                </div>
+                {mediaCount > 1 && (
+                  <span className="absolute top-3 right-3 px-2 py-1 rounded-full bg-black/60 text-white text-[11px] font-mono inline-flex items-center gap-1 pointer-events-none">
+                    <Images className="size-3" /> {mediaCount}
+                  </span>
+                )}
+              </button>
               <div className="p-5">
-                <h3 className="font-display text-xl">{a.name}</h3>
+                <div className="flex items-center justify-between gap-3">
+                  <h3 className="font-display text-xl">{a.name}</h3>
+                  <button
+                    type="button"
+                    onClick={() => navigate({ to: "/heritage/rooms" })}
+                    className="text-sm underline shrink-0"
+                    style={{ color: "var(--h-primary)" }}
+                  >
+                    Explore →
+                  </button>
+                </div>
                 <p className="text-sm text-stone-600 mt-1">{a.description}</p>
               </div>
             </div>
           );
         })}
       </div>
+
+      {activeArea && (
+        <RoomMediaDialog
+          open={!!openSlug}
+          onOpenChange={(open) => !open && setOpenSlug(null)}
+          roomName={activeArea.name}
+          media={activeMedia}
+        />
+      )}
     </section>
   );
 }
