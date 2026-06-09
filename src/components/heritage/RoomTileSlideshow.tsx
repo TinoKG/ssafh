@@ -12,7 +12,7 @@ interface Props {
  * smooth cross-fade. Videos are shown as a static poster frame (muted) so the
  * tile stays calm and non-distracting.
  */
-export function RoomTileSlideshow({ media, alt, intervalMs = 4000 }: Props) {
+export function RoomTileSlideshow({ media, alt, intervalMs = 8000 }: Props) {
   const images = media.length > 0 ? media : [];
   const [index, setIndex] = useState(0);
 
@@ -33,7 +33,7 @@ export function RoomTileSlideshow({ media, alt, intervalMs = 4000 }: Props) {
         return (
           <div
             key={m.url}
-            className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+            className="absolute inset-0 transition-opacity duration-[2000ms] ease-in-out"
             style={{ opacity: active ? 1 : 0 }}
             aria-hidden={!active}
           >

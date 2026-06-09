@@ -3,6 +3,9 @@ import { useQuery } from "@tanstack/react-query";
 import { roomsQueryOptions, settingsQueryOptions, statusLabel } from "@/lib/site-data";
 import { VALUE_PROPS, SERVICES, TRUST_BADGES } from "@/lib/content";
 import { ASSETS } from "@/lib/assets";
+import { getRoomMedia } from "@/lib/room-media";
+import { getCommonAreas, getCommonAreaMedia } from "@/lib/common-areas";
+import { RoomTileSlideshow } from "@/components/heritage/RoomTileSlideshow";
 import {
   ArrowRight, Heart, Home, Users, ShieldCheck,
   Gamepad2, Puzzle, Music, Palette, Flower2, Car, Ticket,
@@ -106,10 +109,12 @@ function Page() {
           <Link to="/heritage/rooms" className="text-sm font-medium underline">View all rooms →</Link>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {rooms.slice(0, 3).map((r) => (
+          {rooms.slice(0, 3).map((r) => {
+            const media = getRoomMedia(r.slug);
+            return (
             <Link key={r.id} to="/heritage/rooms/$slug" params={{ slug: r.slug }} className="group rounded-xl overflow-hidden bg-white block" style={{ border: "1px solid var(--h-border)" }}>
-              <div className="aspect-[4/3] overflow-hidden bg-stone-100">
-                <img src={r.photos[0] ?? ASSETS.room} alt={r.name} className="w-full h-full object-cover group-hover:scale-105 transition" loading="lazy" />
+              <div className="relative aspect-[4/3] overflow-hidden bg-stone-100">
+                <RoomTileSlideshow media={media} alt={r.name} />
               </div>
               <div className="p-5">
                 <div className="flex items-center justify-between">
@@ -122,9 +127,11 @@ function Page() {
                 <p className="text-sm text-stone-500 mt-1">{r.sqft ? `${r.sqft} sq ft` : ""}</p>
               </div>
             </Link>
-          ))}
+          );})}
         </div>
       </section>
+
+      <CommonAreasSection />
 
       <section className="py-16 lg:py-24" style={{ background: "var(--h-surface)" }}>
         <div className="max-w-7xl mx-auto px-6">
@@ -199,5 +206,37 @@ function Page() {
         </div>
       </section>
     </>
+  );
+}
+
+function CommonAreasSection() {
+  const areas = getCommonAreas();
+  if (areas.length === 0) return null;
+  return (
+    <section className="max-w-7xl mx-auto px-6 py-16 lg:py-24">
+      <div className="flex items-end justify-between flex-wrap gap-4 mb-10">
+        <div>
+          <p className="text-xs uppercase tracking-[0.25em]" style={{ color: "var(--h-primary)" }}>Shared spaces</p>
+          <h2 className="font-display text-4xl md:text-5xl mt-2">Common areas</h2>
+          <p className="mt-3 text-stone-600 max-w-2xl">The kitchen, dining room, sitting room, and porch — the spaces where life happens together every day.</p>
+        </div>
+      </div>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {areas.map((a) => {
+          const media = getCommonAreaMedia(a.slug);
+          return (
+            <div key={a.slug} className="group rounded-xl overflow-hidden bg-white" style={{ border: "1px solid var(--h-border)" }}>
+              <div className="relative aspect-[4/3] overflow-hidden bg-stone-100">
+                <RoomTileSlideshow media={media} alt={a.name} />
+              </div>
+              <div className="p-5">
+                <h3 className="font-display text-xl">{a.name}</h3>
+                <p className="text-sm text-stone-600 mt-1">{a.description}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
   );
 }
