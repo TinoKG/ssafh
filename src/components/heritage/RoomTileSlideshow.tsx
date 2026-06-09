@@ -27,7 +27,7 @@ export function RoomTileSlideshow({ media, alt, intervalMs = 8000 }: Props) {
   if (images.length === 0) return null;
 
   return (
-    <div className="absolute inset-0">
+    <div className="absolute inset-0 overflow-hidden">
       {images.map((m, i) => {
         const active = i === index;
         return (
@@ -41,7 +41,7 @@ export function RoomTileSlideshow({ media, alt, intervalMs = 8000 }: Props) {
               <img
                 src={m.url}
                 alt={active ? `${alt} photo ${i + 1}` : ""}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                 loading={i === 0 ? "eager" : "lazy"}
               />
             ) : (
@@ -50,7 +50,7 @@ export function RoomTileSlideshow({ media, alt, intervalMs = 8000 }: Props) {
                 muted
                 playsInline
                 preload="metadata"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
               />
             )}
           </div>
