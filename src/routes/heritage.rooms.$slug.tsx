@@ -79,12 +79,15 @@ function Page() {
         <div className="mt-20">
           <h2 className="font-display text-2xl mb-6">Other rooms</h2>
           <div className="grid sm:grid-cols-3 gap-6">
-            {others.map((r) => (
-              <Link key={r.id} to="/heritage/rooms/$slug" params={{ slug: r.slug }} className="rounded-xl overflow-hidden bg-white block" style={{ border: "1px solid var(--h-border)" }}>
-                <img src={r.photos[0] ?? ASSETS.room} alt={r.name} className="w-full aspect-[4/3] object-cover" loading="lazy" />
-                <div className="p-4"><h3 className="font-display">{r.name}</h3></div>
-              </Link>
-            ))}
+            {others.map((r) => {
+              const cover = getRoomMedia(r.slug).find((m) => m.type === "image");
+              return (
+                <Link key={r.id} to="/heritage/rooms/$slug" params={{ slug: r.slug }} className="rounded-xl overflow-hidden bg-white block" style={{ border: "1px solid var(--h-border)" }}>
+                  <img src={cover?.url ?? ASSETS.room} alt={`Heritage adult family home ${r.name}`} className="w-full aspect-[4/3] object-cover" loading="lazy" />
+                  <div className="p-4"><h3 className="font-display">{r.name}</h3></div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       )}
