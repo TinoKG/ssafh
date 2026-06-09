@@ -38,12 +38,13 @@ function Header() {
           <span className="font-display text-xl font-semibold">{s?.business_name ?? "Senior Services Adult Family Home"}</span>
         </Link>
         <nav className="hidden lg:flex items-center gap-8" aria-label="Primary">
-          <NavLink to="/heritage/about" label="About" />
-          <NavLink to="/heritage/rooms" label="Rooms" />
+          <NavLink to="/heritage" label="Home" exact />
           <NavLink to="/heritage/services" label="Services" />
-          <NavLink to="/heritage/admissions" label="Admissions" />
+          <NavLink to="/heritage/rooms" label="Rooms" />
           <NavLink to="/heritage/resources" label="Resources" />
+          <NavLink to="/heritage/admissions" label="Admissions" />
           <NavLink to="/heritage/contact" label="Contact" />
+          <NavLink to="/heritage/about" label="About" />
           <Link
             to="/heritage/tour"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-white text-sm font-medium hover:brightness-110 transition"
