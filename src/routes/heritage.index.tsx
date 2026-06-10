@@ -222,3 +222,101 @@ function CommonAreasSection() {
     </section>
   );
 }
+
+const INDOOR_ACTIVITIES = [
+  { icon: Gamepad2, title: "Games & cards", body: "Rummy, dominoes, checkers — small-group play that keeps minds sharp." },
+  { icon: Puzzle, title: "Puzzles", body: "Jigsaws and word puzzles always out on the table for whoever feels like joining." },
+  { icon: Music, title: "Music hour", body: "Hymns, old favorites, and Sunday gospel — sometimes a singalong, always a smile." },
+  { icon: Palette, title: "Painting & coloring", body: "Watercolors and adult coloring books — gentle creative time, no skill required." },
+  { icon: BookOpen, title: "Reading & storytelling", body: "Daily papers, large-print books, and shared stories from a lifetime of memories." },
+  { icon: Sparkles, title: "Baking together", body: "Helping knead dough or stir batter — the kitchen smells like home on baking days." },
+];
+
+const OUTDOOR_ACTIVITIES = [
+  { icon: Flower2, title: "Gardening & potting", body: "Tending the porch planters, deadheading roses, watering ferns — small wins, every day." },
+  { icon: Sun, title: "Porch & lawn time", body: "Morning coffee on the porch, afternoon sun in the lawn chairs, fresh air whenever you want it." },
+  { icon: Car, title: "Dockton Park & café outings", body: "Scenic drives, waterfront walks, and visits to a favorite local café — weather permitting." },
+  { icon: Ticket, title: "Bingo & community events", body: "In-house bingo nights and seasonal performances — birthdays, holidays, and everything in between." },
+];
+
+function ActivitiesSection() {
+  const photos = [
+    { src: gardenA, alt: "Tall ornamental grasses in a blue glazed pot beside the porch" },
+    { src: gardenB, alt: "Black planter with red coleus, ferns, and yellow blooms" },
+    { src: gardenC, alt: "Green ceramic pot of ferns and pink wildflowers in the garden" },
+    { src: gardenD, alt: "Climbing red roses in a black planter against the home" },
+  ];
+  return (
+    <section className="py-16 lg:py-24" style={{ background: "var(--h-surface)" }}>
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid lg:grid-cols-[1.1fr_1fr] gap-12 items-start mb-14">
+          <div>
+            <p className="text-xs uppercase tracking-[0.25em] mb-3" style={{ color: "var(--h-primary)" }}>Daily life</p>
+            <h2 className="font-display text-4xl md:text-5xl">Activities & Engagement</h2>
+            <p className="mt-5 text-lg text-stone-600 max-w-xl">
+              Days here move at a gentle pace — but they're never empty. Mornings start with coffee and the paper, afternoons drift between the garden, the porch, and the sitting room, and evenings end with music or a favorite show.
+            </p>
+            <p className="mt-4 text-stone-600 max-w-xl">
+              We plan around each resident — what they love, what they used to do, what makes them light up. Caregivers join in, family is always welcome, and our little flock of garden visitors (yes, including the patriotic rooster out front) keeps things cheerful.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            {photos.map((p) => (
+              <img
+                key={p.src}
+                src={p.src}
+                alt={p.alt}
+                loading="lazy"
+                className="rounded-xl aspect-[4/3] object-cover w-full shadow-sm"
+                style={{ border: "1px solid var(--h-border)" }}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="flex items-center gap-3 mb-6">
+          <h3 className="font-display text-2xl">Inside</h3>
+          <div className="h-px flex-1" style={{ background: "var(--h-border)" }} />
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
+          {INDOOR_ACTIVITIES.map(({ icon: Icon, title, body }) => (
+            <div key={title} className="p-6 rounded-xl bg-white" style={{ border: "1px solid var(--h-border)" }}>
+              <div className="size-10 rounded-full grid place-items-center mb-4" style={{ background: "var(--h-primary-soft)" }}>
+                <Icon className="size-5" style={{ color: "var(--h-primary)" }} />
+              </div>
+              <h4 className="font-display text-lg">{title}</h4>
+              <p className="mt-2 text-sm text-stone-600">{body}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex items-center gap-3 mb-6">
+          <h3 className="font-display text-2xl">Outside</h3>
+          <div className="h-px flex-1" style={{ background: "var(--h-border)" }} />
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {OUTDOOR_ACTIVITIES.map(({ icon: Icon, title, body }) => (
+            <div key={title} className="p-6 rounded-xl bg-white" style={{ border: "1px solid var(--h-border)" }}>
+              <div className="size-10 rounded-full grid place-items-center mb-4" style={{ background: "var(--h-primary-soft)" }}>
+                <Icon className="size-5" style={{ color: "var(--h-primary)" }} />
+              </div>
+              <h4 className="font-display text-lg">{title}</h4>
+              <p className="mt-2 text-sm text-stone-600">{body}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12 rounded-2xl overflow-hidden grid md:grid-cols-[1fr_1.5fr] bg-white" style={{ border: "1px solid var(--h-border)" }}>
+          <img src={rooster} alt="Painted red, white, and blue rooster yard ornament in the garden bed" className="w-full h-full object-cover aspect-[4/3] md:aspect-auto" loading="lazy" />
+          <div className="p-6 md:p-8">
+            <p className="text-xs uppercase tracking-[0.25em]" style={{ color: "var(--h-primary)" }}>A note about home</p>
+            <h3 className="font-display text-2xl md:text-3xl mt-2">Small things, every day.</h3>
+            <p className="mt-3 text-stone-600">
+              A red, white, and blue rooster watching the garden. Roses against the siding. A blue ceramic pot full of grass that catches the light just right. It's the little touches that make this feel like home — and it's what residents notice first.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
