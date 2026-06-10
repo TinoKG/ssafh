@@ -4,7 +4,7 @@
 export const VALUE_PROPS = [
   {
     title: "Personalized 1:3 care",
-    body: "An intimate, six-resident home means every person is known by name, story, and preference — never a room number.",
+    body: "An intimate, six-resident home means every person is known by name, story, and preference — never a bedroom number.",
   },
   {
     title: "A real home, not a facility",
@@ -35,7 +35,7 @@ export const SERVICES = [
   },
   {
     title: "Laundry & Housekeeping",
-    body: "Personal laundry, room cleaning, and shared-space upkeep — all included, never piecemeal.",
+    body: "Personal laundry, bedroom cleaning, and shared-space upkeep — all included, never piecemeal.",
   },
   {
     title: "24-Hour Supervision",
@@ -53,7 +53,7 @@ export const SERVICES = [
 
 export const ADMISSION_STEPS = [
   { n: "01", title: "Inquiry", body: "Call us or send a note. We listen first — no scripts, no pressure." },
-  { n: "02", title: "Tour", body: "Visit in person, meet the caregivers, and see the room you're considering." },
+  { n: "02", title: "Tour", body: "Visit in person, meet the caregivers, and see the bedroom you're considering." },
   { n: "03", title: "Assessment", body: "A care needs assessment ensures we are the right fit for your loved one." },
   { n: "04", title: "Agreement", body: "We review the written disclosures, services, and resident rights together." },
   { n: "05", title: "Move-In", body: "We help with the transition so the first day feels welcoming, not jarring." },
@@ -71,7 +71,7 @@ export const TOUR_CHECKLIST = [
   "Note any dietary, religious, or cultural preferences",
   "Plan for 45–60 minutes; the home is calmer mid-morning",
   "Ask to meet the caregiver on shift, not just the owner",
-  "Walk the room you are considering — and the bathroom",
+  "Walk the bedroom you are considering — and the bathroom",
 ] as const;
 
 export const FAMILY_RESOURCES = [
