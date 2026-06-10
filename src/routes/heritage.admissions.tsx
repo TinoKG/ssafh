@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ADMISSION_STEPS, PAYMENT_OPTIONS } from "@/lib/content";
+import { ADMISSION_STEPS } from "@/lib/content";
 import { InquiryForm } from "@/components/shared/InquiryForm";
 
 export const Route = createFileRoute("/heritage/admissions")({
@@ -31,12 +31,6 @@ function Page() {
         ))}
       </ol>
 
-      <h2 className="font-display text-3xl mt-16">Payment options</h2>
-      <ul className="mt-4 grid sm:grid-cols-2 gap-3">
-        {PAYMENT_OPTIONS.map((p) => <li key={p} className="p-4 rounded-lg" style={{ background: "var(--h-surface)" }}>· {p}</li>)}
-      </ul>
-
-      <h2 className="font-display text-3xl mt-16">Required disclosures</h2>
       <div className="mt-4 p-6 rounded-2xl text-sm text-stone-700 leading-relaxed" style={{ background: "var(--h-surface)" }}>
         <p><strong>Per Washington State RCW 70.128.280</strong>, prospective residents receive written disclosure of:</p>
         <ul className="mt-3 list-disc pl-6 space-y-1">

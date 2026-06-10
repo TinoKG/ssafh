@@ -59,12 +59,6 @@ export const ADMISSION_STEPS = [
   { n: "05", title: "Move-In", body: "We help with the transition so the first day feels welcoming, not jarring." },
 ] as const;
 
-export const PAYMENT_OPTIONS = [
-  "Private pay",
-  "Long-term care insurance",
-  "Medicaid (please ask — limited slots)",
-  "Veterans' Aid & Attendance benefits",
-] as const;
 
 export const TOUR_CHECKLIST = [
   "Bring a list of your loved one's medications and conditions",
