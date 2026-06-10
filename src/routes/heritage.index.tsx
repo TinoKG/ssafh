@@ -10,8 +10,14 @@ import { RoomMediaDialog } from "@/components/heritage/RoomMediaDialog";
 import {
   ArrowRight, Heart, Home, Users, ShieldCheck,
   Gamepad2, Puzzle, Music, Palette, Flower2, Car, Ticket, Images,
+  BookOpen, Sun, Sparkles,
 } from "lucide-react";
 import { useState } from "react";
+import gardenA from "@/assets/garden/g1.jpg";
+import gardenB from "@/assets/garden/g2.jpg";
+import gardenC from "@/assets/garden/g3.jpg";
+import gardenD from "@/assets/garden/g4.jpg";
+import rooster from "@/assets/garden/rooster.jpg";
 
 export const Route = createFileRoute("/heritage/")({
   head: () => ({
@@ -135,63 +141,7 @@ function Page() {
 
       <CommonAreasSection />
 
-      <section className="py-16 lg:py-24" style={{ background: "var(--h-surface)" }}>
-        <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs uppercase tracking-[0.25em] mb-3" style={{ color: "var(--h-primary)" }}>Daily life</p>
-          <h2 className="font-display text-4xl md:text-5xl mb-12">Activities & Engagement</h2>
-
-          <h3 className="font-display text-2xl mb-6">Indoor</h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <div className="p-6 rounded-xl bg-white" style={{ border: "1px solid var(--h-border)" }}>
-              <div className="size-10 rounded-full grid place-items-center mb-4" style={{ background: "var(--h-primary-soft)" }}>
-                <Gamepad2 className="size-5" style={{ color: "var(--h-primary)" }} />
-              </div>
-              <h4 className="font-display text-lg">Games</h4>
-            </div>
-            <div className="p-6 rounded-xl bg-white" style={{ border: "1px solid var(--h-border)" }}>
-              <div className="size-10 rounded-full grid place-items-center mb-4" style={{ background: "var(--h-primary-soft)" }}>
-                <Puzzle className="size-5" style={{ color: "var(--h-primary)" }} />
-              </div>
-              <h4 className="font-display text-lg">Puzzles</h4>
-            </div>
-            <div className="p-6 rounded-xl bg-white" style={{ border: "1px solid var(--h-border)" }}>
-              <div className="size-10 rounded-full grid place-items-center mb-4" style={{ background: "var(--h-primary-soft)" }}>
-                <Music className="size-5" style={{ color: "var(--h-primary)" }} />
-              </div>
-              <h4 className="font-display text-lg">Music</h4>
-            </div>
-            <div className="p-6 rounded-xl bg-white" style={{ border: "1px solid var(--h-border)" }}>
-              <div className="size-10 rounded-full grid place-items-center mb-4" style={{ background: "var(--h-primary-soft)" }}>
-                <Palette className="size-5" style={{ color: "var(--h-primary)" }} />
-              </div>
-              <h4 className="font-display text-lg">Painting &amp; Coloring</h4>
-            </div>
-          </div>
-
-          <h3 className="font-display text-2xl mb-6">Outdoor</h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="p-6 rounded-xl bg-white" style={{ border: "1px solid var(--h-border)" }}>
-              <div className="size-10 rounded-full grid place-items-center mb-4" style={{ background: "var(--h-primary-soft)" }}>
-                <Flower2 className="size-5" style={{ color: "var(--h-primary)" }} />
-              </div>
-              <h4 className="font-display text-lg">Gardening</h4>
-            </div>
-            <div className="p-6 rounded-xl bg-white" style={{ border: "1px solid var(--h-border)" }}>
-              <div className="size-10 rounded-full grid place-items-center mb-4" style={{ background: "var(--h-primary-soft)" }}>
-                <Car className="size-5" style={{ color: "var(--h-primary)" }} />
-              </div>
-              <h4 className="font-display text-lg">Docking Bay &amp; Recovery Café trips</h4>
-              <p className="text-sm text-stone-500 mt-1">Outdoor entertainment &amp; performances</p>
-            </div>
-            <div className="p-6 rounded-xl bg-white" style={{ border: "1px solid var(--h-border)" }}>
-              <div className="size-10 rounded-full grid place-items-center mb-4" style={{ background: "var(--h-primary-soft)" }}>
-                <Ticket className="size-5" style={{ color: "var(--h-primary)" }} />
-              </div>
-              <h4 className="font-display text-lg">Bingo</h4>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ActivitiesSection />
 
       <section className="max-w-7xl mx-auto px-6 py-16">
         <div className="rounded-2xl p-8 md:p-12 flex flex-wrap items-center gap-6 justify-between" style={{ background: "var(--h-primary)", color: "white" }}>
