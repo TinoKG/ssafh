@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { InquiryForm } from "@/components/shared/InquiryForm";
 import { TOUR_CHECKLIST } from "@/lib/content";
+import { useEffect, useRef } from "react";
+import tourVideo from "@/assets/video/tour-refined.mp4.asset.json";
 
 export const Route = createFileRoute("/heritage/tour")({
   head: () => ({
@@ -22,11 +24,33 @@ const STEPS = [
 ];
 
 function Page() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    const v = videoRef.current;
+    if (v) {
+      v.playbackRate = 0.5;
+      v.play().catch(() => {});
+    }
+  }, []);
   return (
     <div className="max-w-6xl mx-auto px-6 py-16 lg:py-24">
       <p className="text-xs uppercase tracking-[0.25em]" style={{ color: "var(--h-primary)" }}>Visit</p>
       <h1 className="font-display text-5xl md:text-6xl mt-4">Come spend 45 minutes with us.</h1>
       <p className="mt-6 text-lg text-stone-600 max-w-2xl">Tours are calmest mid-morning, and we'll always offer coffee. Bring your questions.</p>
+
+      <div className="mt-10 rounded-2xl overflow-hidden bg-stone-100" style={{ border: "1px solid var(--h-border)" }}>
+        <video
+          ref={videoRef}
+          src={tourVideo.url}
+          className="w-full aspect-video object-cover bg-black"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-label="A short walkthrough of Senior Services Adult Family Home"
+        />
+      </div>
 
       <div className="mt-12 grid lg:grid-cols-[1fr_1fr] gap-12">
         <div>
