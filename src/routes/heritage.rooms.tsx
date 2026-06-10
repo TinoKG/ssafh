@@ -11,9 +11,9 @@ import { useState } from "react";
 export const Route = createFileRoute("/heritage/rooms")({
   head: () => ({
     meta: [
-      { title: "Private Rooms — Adult Family Home in Mount Vernon, WA" },
-      { name: "description", content: "Six private rooms in our Mount Vernon, WA adult family home. Garden views, wood floors, and live availability for Skagit County families." },
-      { property: "og:title", content: "Private Rooms — Mount Vernon, WA Adult Family Home" },
+      { title: "Private Bedrooms — Adult Family Home in Mount Vernon, WA" },
+      { name: "description", content: "Six private bedrooms in our Mount Vernon, WA adult family home. Garden views, wood floors, and live availability for Skagit County families." },
+      { property: "og:title", content: "Private Bedrooms — Mount Vernon, WA Adult Family Home" },
       { property: "og:url", content: "https://ssafh.lovable.app/heritage/rooms" },
       { property: "og:image", content: ASSETS.room },
     ],
@@ -34,17 +34,17 @@ function Page() {
   const filtered = withMedia.filter((r) => filter === "all" || r.status === filter);
   const active = openSlug ? rooms.find((r) => r.slug === openSlug) : null;
   const activeMedia = active ? getRoomMedia(active.slug) : [];
-  const roomCount = withMedia.length;
+  const bedroomCount = withMedia.length;
   return (
     <div className="max-w-7xl mx-auto px-6 py-16 lg:py-24">
-      <p className="text-xs uppercase tracking-[0.25em]" style={{ color: "var(--h-primary)" }}>Rooms</p>
-      <h1 className="font-display text-5xl md:text-6xl mt-4">Private rooms. Each one a home.</h1>
-      <p className="mt-6 text-lg text-stone-600 max-w-2xl">Tap any room to view all photos. Availability is updated by the owner directly.</p>
+      <p className="text-xs uppercase tracking-[0.25em]" style={{ color: "var(--h-primary)" }}>Bedrooms</p>
+      <h1 className="font-display text-5xl md:text-6xl mt-4">Private bedrooms. Each one a home.</h1>
+      <p className="mt-6 text-lg text-stone-600 max-w-2xl">Tap any bedroom to view all photos. Availability is updated by the owner directly.</p>
 
       <div className="flex flex-wrap gap-2 mt-10">
         {(["all", "available", "waitlist"] as const).map((f) => (
           <button key={f} onClick={() => setFilter(f)} aria-pressed={filter===f} className={"px-4 py-2 rounded-full text-sm capitalize border " + (filter===f ? "text-white" : "bg-white")} style={filter===f ? { background: "var(--h-primary)", borderColor: "var(--h-primary)" } : { borderColor: "var(--h-border)" }}>
-            {f === "all" ? "All rooms" : f}
+            {f === "all" ? "All bedrooms" : f}
           </button>
         ))}
       </div>
@@ -97,7 +97,7 @@ function Page() {
             </div>
           );
         })}
-        {filtered.length === 0 && <p className="text-stone-600">{roomCount === 0 ? "Room photos coming soon." : "No rooms match this filter right now."}</p>}
+        {filtered.length === 0 && <p className="text-stone-600">{bedroomCount === 0 ? "Bedroom photos coming soon." : "No bedrooms match this filter right now."}</p>}
       </div>
 
       {active && (

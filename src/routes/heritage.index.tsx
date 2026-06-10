@@ -17,9 +17,9 @@ export const Route = createFileRoute("/heritage/")({
   head: () => ({
     meta: [
       { title: "Adult Family Home in Mount Vernon, WA | Senior Services AFH" },
-      { name: "description", content: "Senior Services Adult Family Home — a licensed adult family home in Mount Vernon, WA serving Skagit County. Six private rooms, 24-hour personalized senior care, dementia support, and a true residential setting." },
+      { name: "description", content: "Senior Services Adult Family Home — a licensed adult family home in Mount Vernon, WA serving Skagit County. Six private bedrooms, 24-hour personalized senior care, dementia support, and a true residential setting." },
       { property: "og:title", content: "Adult Family Home in Mount Vernon, WA — Senior Services AFH" },
-      { property: "og:description", content: "Licensed adult family home in Mount Vernon, WA. Private rooms, 24-hour care, dementia support across Skagit County." },
+      { property: "og:description", content: "Licensed adult family home in Mount Vernon, WA. Private bedrooms, 24-hour care, dementia support across Skagit County." },
       { property: "og:url", content: "https://ssafh.lovable.app/heritage" },
       { property: "og:image", content: ASSETS.hero },
     ],
@@ -46,7 +46,7 @@ function Page() {
               Adult family home in <em className="italic" style={{ color: "var(--h-primary)" }}>Mount Vernon, WA</em> — a real home for our community's seniors.
             </h1>
             <p className="mt-6 text-lg text-stone-600 max-w-xl">
-              Licensed adult family home serving Mount Vernon, Burlington, Sedro-Woolley, Anacortes and Skagit County. Six private rooms, 1:3 caregiver ratio, 24-hour care, home-cooked meals, and a true residential setting.
+              Licensed adult family home serving Mount Vernon, Burlington, Sedro-Woolley, Anacortes and Skagit County. Six private bedrooms, 1:3 caregiver ratio, 24-hour care, home-cooked meals, and a true residential setting.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link to="/heritage/tour" className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-white font-medium hover:brightness-110 transition" style={{ background: "var(--h-primary)" }}>
@@ -64,8 +64,8 @@ function Page() {
               <img src={ASSETS.hero} alt="Heritage adult family home exterior with apple tree in the front yard" className="rounded-2xl shadow-xl w-full aspect-[4/5] object-cover" width={1600} height={1100} />
             <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-lg p-5 max-w-[240px] hidden md:block" style={{ border: "1px solid var(--h-border)" }}>
               <p className="text-xs uppercase tracking-widest text-stone-500">Today</p>
-              <p className="font-display text-2xl mt-1">{rooms.filter(r=>r.status==="available").length} rooms available</p>
-              <Link to="/heritage/rooms" className="text-sm mt-2 inline-block" style={{ color: "var(--h-primary)" }}>See rooms →</Link>
+              <p className="font-display text-2xl mt-1">{rooms.filter(r=>r.status==="available").length} bedrooms available</p>
+              <Link to="/heritage/rooms" className="text-sm mt-2 inline-block" style={{ color: "var(--h-primary)" }}>See bedrooms →</Link>
             </div>
           </div>
         </div>
@@ -107,8 +107,8 @@ function Page() {
 
       <section className="max-w-7xl mx-auto px-6 py-16 lg:py-24">
         <div className="flex items-end justify-between flex-wrap gap-4 mb-10">
-          <h2 className="font-display text-4xl md:text-5xl">Rooms at a glance</h2>
-          <Link to="/heritage/rooms" className="text-sm font-medium underline">View all rooms →</Link>
+          <h2 className="font-display text-4xl md:text-5xl">Bedrooms at a glance</h2>
+          <Link to="/heritage/rooms" className="text-sm font-medium underline">View all bedrooms →</Link>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {rooms.slice(0, 3).map((r) => {

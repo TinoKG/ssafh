@@ -10,17 +10,17 @@ export const Route = createFileRoute("/heritage/rooms/$slug")({
   loader: ({ context, params }) => context.queryClient.ensureQueryData(roomQueryOptions(params.slug)),
   head: ({ params }) => ({
     meta: [
-      { title: `${params.slug.replace("room-", "Room ").replace(/-/g, " ")} — Senior Services Adult Family Home` },
+      { title: `${params.slug.replace("room-", "Bedroom ").replace(/-/g, " ")} — Senior Services Adult Family Home` },
       { property: "og:image", content: ASSETS.room },
     ],
   }),
   notFoundComponent: () => (
     <div className="max-w-3xl mx-auto px-6 py-24">
-      <h1 className="font-display text-3xl">Room not found</h1>
-      <Link to="/heritage/rooms" className="underline mt-4 inline-block">Back to rooms</Link>
+      <h1 className="font-display text-3xl">Bedroom not found</h1>
+      <Link to="/heritage/rooms" className="underline mt-4 inline-block">Back to bedrooms</Link>
     </div>
   ),
-  errorComponent: () => <div className="max-w-3xl mx-auto px-6 py-24">Something went wrong loading this room.</div>,
+  errorComponent: () => <div className="max-w-3xl mx-auto px-6 py-24">Something went wrong loading this bedroom.</div>,
   component: Page,
 });
 
@@ -34,7 +34,7 @@ function Page() {
   const photos = media.length ? media.map((m) => m.url) : (room.photos.length ? room.photos : [ASSETS.room]);
   return (
     <div className="max-w-7xl mx-auto px-6 py-12 lg:py-16">
-      <Link to="/heritage/rooms" className="text-sm text-stone-600 underline">← All rooms</Link>
+      <Link to="/heritage/rooms" className="text-sm text-stone-600 underline">← All bedrooms</Link>
       <div className="grid lg:grid-cols-[1.5fr_1fr] gap-12 mt-6">
         <div>
           <img src={photos[0]} alt={room.name} className="rounded-2xl w-full aspect-[4/3] object-cover" width={1400} height={1000} />
@@ -67,7 +67,7 @@ function Page() {
 
       <div className="mt-16 grid lg:grid-cols-[1fr_1fr] gap-12">
         <div>
-          <h2 className="font-display text-3xl">Ask about this room</h2>
+          <h2 className="font-display text-3xl">Ask about this bedroom</h2>
           <p className="mt-2 text-stone-600">Tell us a little about your loved one and we'll respond within one business day.</p>
         </div>
         <div className="p-6 rounded-2xl bg-white" style={{ border: "1px solid var(--h-border)" }}>
@@ -77,7 +77,7 @@ function Page() {
 
       {others.length > 0 && (
         <div className="mt-20">
-          <h2 className="font-display text-2xl mb-6">Other rooms</h2>
+          <h2 className="font-display text-2xl mb-6">Other bedrooms</h2>
           <div className="grid sm:grid-cols-3 gap-6">
             {others.map((r) => {
               const cover = getRoomMedia(r.slug).find((m) => m.type === "image");

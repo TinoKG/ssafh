@@ -40,7 +40,7 @@ function Header() {
         <nav className="hidden lg:flex items-center gap-8" aria-label="Primary">
           <NavLink to="/heritage" label="Home" exact />
           <NavLink to="/heritage/services" label="Services" />
-          <NavLink to="/heritage/rooms" label="Rooms" />
+          <NavLink to="/heritage/rooms" label="Bedrooms" />
           <NavLink to="/heritage/resources" label="Resources" />
           <NavLink to="/heritage/admissions" label="Admissions" />
           <NavLink to="/heritage/contact" label="Contact" />
@@ -67,7 +67,7 @@ function Header() {
           {[
             ["/heritage", "Home"],
             ["/heritage/services", "Services"],
-            ["/heritage/rooms", "Rooms"],
+            ["/heritage/rooms", "Bedrooms"],
             ["/heritage/resources", "Resources"],
             ["/heritage/admissions", "Admissions"],
             ["/heritage/contact", "Contact"],
@@ -114,7 +114,7 @@ function Footer() {
         <div>
           <h4 className="text-xs font-medium uppercase tracking-widest text-stone-500 mb-3">Site</h4>
           <ul className="space-y-2 text-sm">
-            <li><Link to="/heritage/rooms">Rooms</Link></li>
+            <li><Link to="/heritage/rooms">Bedrooms</Link></li>
             <li><Link to="/heritage/services">Services</Link></li>
             <li><Link to="/heritage/admissions">Admissions</Link></li>
             <li><Link to="/privacy">Privacy</Link></li>
