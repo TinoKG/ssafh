@@ -19,6 +19,8 @@ export const Route = createFileRoute("/heritage/contact")({
 
 function Page() {
   const { data: s } = useQuery(settingsQueryOptions());
+  const address = `${s?.address_line ?? ""}, ${s?.city ?? ""}, ${s?.state ?? ""} ${s?.zip ?? ""}`.trim();
+  const mapEmbed = `https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`;
   return (
     <div className="max-w-6xl mx-auto px-6 py-16 lg:py-24">
       <p className="text-xs uppercase tracking-[0.25em]" style={{ color: "var(--h-primary)" }}>Contact</p>
@@ -29,6 +31,13 @@ function Page() {
             <Phone className="size-6 mt-1" style={{ color: "var(--h-primary)" }} aria-hidden />
             <div><p className="text-xs uppercase tracking-widest text-stone-500">Phone</p><p className="font-display text-xl">{s?.phone}</p></div>
           </a>
+          <a href="tel:+13607553352" className="flex gap-4 p-5 rounded-xl bg-white" style={{ border: "1px solid var(--h-border)" }}>
+            <Phone className="size-6 mt-1" style={{ color: "var(--h-primary)" }} aria-hidden />
+            <div>
+              <p className="text-xs uppercase tracking-widest text-stone-500">Phone · Hours 8am – 5pm</p>
+              <p className="font-display text-xl">+1 360 755 3352</p>
+            </div>
+          </a>
           <a href={`mailto:${s?.email}`} className="flex gap-4 p-5 rounded-xl bg-white" style={{ border: "1px solid var(--h-border)" }}>
             <Mail className="size-6 mt-1" style={{ color: "var(--h-primary)" }} aria-hidden />
             <div><p className="text-xs uppercase tracking-widest text-stone-500">Email</p><p className="font-display text-xl break-all">{s?.email}</p></div>
@@ -37,12 +46,24 @@ function Page() {
             <Mail className="size-6 mt-1" style={{ color: "var(--h-primary)" }} aria-hidden />
             <div><p className="text-xs uppercase tracking-widest text-stone-500">Owner</p><p className="font-display text-xl break-all">joycengaruiya@gmail.com</p></div>
           </a>
-          <div className="flex gap-4 p-5 rounded-xl bg-white" style={{ border: "1px solid var(--h-border)" }}>
-            <MapPin className="size-6 mt-1" style={{ color: "var(--h-primary)" }} aria-hidden />
-            <div>
-              <p className="text-xs uppercase tracking-widest text-stone-500">Visit</p>
-              <p>{s?.address_line}<br/>{s?.city}, {s?.state} {s?.zip}</p>
-              <p className="text-sm text-stone-500 mt-2">Service area: {s?.service_area}</p>
+          <div className="rounded-xl bg-white overflow-hidden" style={{ border: "1px solid var(--h-border)" }}>
+            <div className="aspect-[4/3] w-full bg-stone-100">
+              <iframe
+                title="Map to Senior Services Adult Family Home"
+                src={mapEmbed}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full border-0"
+                allowFullScreen
+              />
+            </div>
+            <div className="flex gap-4 p-5">
+              <MapPin className="size-6 mt-1" style={{ color: "var(--h-primary)" }} aria-hidden />
+              <div>
+                <p className="text-xs uppercase tracking-widest text-stone-500">Visit</p>
+                <p>{s?.address_line}<br/>{s?.city}, {s?.state} {s?.zip}</p>
+                <p className="text-sm text-stone-500 mt-2">Service area: {s?.service_area}</p>
+              </div>
             </div>
           </div>
         </aside>

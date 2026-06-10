@@ -26,20 +26,19 @@ function Page() {
   const { data: rooms = [] } = useQuery(roomsQueryOptions());
   const [filter, setFilter] = useState<"all" | "available" | "waitlist">("all");
   const [openSlug, setOpenSlug] = useState<string | null>(null);
-  // Only show rooms that have a real media folder
-  const withMedia = rooms.filter((r) => {
-    const m = getRoomMedia(r.slug);
-    return m.length > 0 && m[0].name !== "placeholder";
-  });
-  const filtered = withMedia.filter((r) => filter === "all" || r.status === filter);
+  // Show every bedroom — those without a real media folder render a "Photos coming soon" tile.
+  const filtered = rooms.filter((r) => filter === "all" || r.status === filter);
   const active = openSlug ? rooms.find((r) => r.slug === openSlug) : null;
   const activeMedia = active ? getRoomMedia(active.slug) : [];
-  const bedroomCount = withMedia.length;
+  const bedroomCount = rooms.length;
   return (
     <div className="max-w-7xl mx-auto px-6 py-16 lg:py-24">
       <p className="text-xs uppercase tracking-[0.25em]" style={{ color: "var(--h-primary)" }}>Bedrooms</p>
       <h1 className="font-display text-5xl md:text-6xl mt-4">Private bedrooms. Each one a home.</h1>
       <p className="mt-6 text-lg text-stone-600 max-w-2xl">Tap any bedroom to view all photos. Availability is updated by the owner directly.</p>
+      <p className="mt-3 text-sm text-stone-600 max-w-2xl">
+        <span className="font-medium" style={{ color: "var(--h-primary)" }}>TVs included:</span> a flat-screen TV is mounted in every resident's private bedroom before move-in — unless you'd rather bring your own.
+      </p>
 
       <div className="flex flex-wrap gap-2 mt-10">
         {(["all", "available", "waitlist"] as const).map((f) => (
@@ -52,21 +51,35 @@ function Page() {
       <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {filtered.map((r) => {
           const media = getRoomMedia(r.slug);
-          const mediaCount = media.length;
+          const hasRealMedia = media.length > 0 && media[0].name !== "placeholder";
+          const mediaCount = hasRealMedia ? media.length : 0;
           return (
             <div key={r.id} className="rounded-xl overflow-hidden bg-white flex flex-col" style={{ border: "1px solid var(--h-border)" }}>
               <button
                 type="button"
-                onClick={() => setOpenSlug(r.slug)}
+                onClick={() => hasRealMedia && setOpenSlug(r.slug)}
+                disabled={!hasRealMedia}
                 className="group relative aspect-[4/3] overflow-hidden bg-stone-100 block text-left"
                 aria-label={`Open ${mediaCount} photos for ${r.name}`}
               >
-                <RoomTileSlideshow media={media} alt={`Heritage adult family home ${r.name}`} />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
+                {hasRealMedia ? (
+                  <RoomTileSlideshow media={media} alt={`Heritage adult family home ${r.name}`} />
+                ) : (
+                  <div className="absolute inset-0 grid place-items-center text-center px-6" style={{ background: "var(--h-primary-soft)" }}>
+                    <div>
+                      <Images className="size-7 mx-auto mb-2" style={{ color: "var(--h-primary)" }} />
+                      <p className="font-display text-lg" style={{ color: "var(--h-primary)" }}>Photos coming soon</p>
+                      <p className="text-xs text-stone-600 mt-1">We're capturing fresh images of this bedroom.</p>
+                    </div>
+                  </div>
+                )}
+                <div className={"absolute inset-0 bg-black/0 transition flex items-center justify-center " + (hasRealMedia ? "group-hover:bg-black/30" : "")}>
+                  {hasRealMedia && (
                   <span className="opacity-0 group-hover:opacity-100 transition px-3 py-1.5 rounded-full bg-white/95 text-stone-900 text-xs font-medium inline-flex items-center gap-1.5">
                     <Images className="size-3.5" />
                     View all {mediaCount} photos
                   </span>
+                  )}
                 </div>
                 {mediaCount > 1 && (
                   <span className="absolute top-3 right-3 px-2 py-1 rounded-full bg-black/60 text-white text-[11px] font-mono inline-flex items-center gap-1 pointer-events-none">
@@ -83,7 +96,7 @@ function Page() {
                   }}>{statusLabel(r.status)}</span>
                 </div>
                 <div className="mt-3 flex items-center justify-between">
-                  <p className="text-xs text-stone-500">{mediaCount} photo{mediaCount === 1 ? "" : "s"}</p>
+                  <p className="text-xs text-stone-500">{hasRealMedia ? `${mediaCount} photo${mediaCount === 1 ? "" : "s"}` : "Photos coming soon"}</p>
                   <Link
                     to="/heritage/rooms/$slug"
                     params={{ slug: r.slug }}
