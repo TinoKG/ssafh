@@ -9,7 +9,7 @@ export const Route = createFileRoute("/heirloom/")({
   head: () => ({
     meta: [
       { title: "Senior Services Adult Family Home — Mount Vernon, WA" },
-      { name: "description", content: "Senior Services Adult Family Home is a licensed Mount Vernon adult family home with private rooms, personalized care, and a calm residential atmosphere." },
+      { name: "description", content: "Senior Services Adult Family Home is a licensed Mount Vernon adult family home with private bedrooms, personalized care, and a calm residential atmosphere." },
       { property: "og:title", content: "Senior Services Adult Family Home" },
       { property: "og:image", content: ASSETS.hero },
     ],
@@ -34,17 +34,17 @@ function Page() {
               A quieter way<br/>to grow <em className="italic">older</em>,<br/>at home.
             </h1>
             <p className="mt-8 text-lg text-[var(--hl-muted)] max-w-xl">
-              Six private rooms. One caregiver to every three residents. Three home-cooked meals. A garden out back. We are small, on purpose.
+              Six private bedrooms. One caregiver to every three residents. Three home-cooked meals. A garden out back. We are small, on purpose.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Link to={"/heirloom/tour" as any} className="px-7 py-3 text-white font-mono text-sm uppercase tracking-[0.18em]" style={{ background: "var(--hl-ink)" }}>Book a tour</Link>
-              <Link to={"/heirloom/rooms" as any} className="px-7 py-3 font-mono text-sm uppercase tracking-[0.18em]" style={{ border: "1px solid var(--hl-ink)" }}>See rooms</Link>
+              <Link to={"/heirloom/rooms" as any} className="px-7 py-3 font-mono text-sm uppercase tracking-[0.18em]" style={{ border: "1px solid var(--hl-ink)" }}>See bedrooms</Link>
             </div>
           </div>
           <div className="text-right">
             <p className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--hl-muted)]">Today</p>
             <p className="font-serif text-7xl mt-2">{available}</p>
-            <p className="font-mono text-xs uppercase tracking-widest text-[var(--hl-muted)] mt-2">rooms available</p>
+            <p className="font-mono text-xs uppercase tracking-widest text-[var(--hl-muted)] mt-2">bedrooms available</p>
           </div>
         </div>
         <img src={ASSETS.hero} alt="Heritage adult family home exterior with apple tree in the front yard" className="mt-16 w-full aspect-[21/9] object-cover" width={1600} height={700} />
@@ -88,8 +88,8 @@ function Page() {
 
       <section className="max-w-7xl mx-auto px-6 py-20">
         <div className="flex items-end justify-between flex-wrap gap-4 mb-10">
-          <h2 className="font-serif text-4xl md:text-5xl">Rooms</h2>
-          <Link to={"/heirloom/rooms" as any} className="font-mono text-xs uppercase tracking-[0.18em] underline">All rooms</Link>
+          <h2 className="font-serif text-4xl md:text-5xl">Bedrooms</h2>
+          <Link to={"/heirloom/rooms" as any} className="font-mono text-xs uppercase tracking-[0.18em] underline">All bedrooms</Link>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {rooms.slice(0,3).map(r => (
