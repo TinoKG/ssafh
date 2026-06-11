@@ -1,4 +1,3 @@
-
 # Adult Family Home — Dual-Design Build Plan
 
 Two complete websites built side-by-side from your Website_plan.pdf, each using a different visual direction but sharing the same backend, content, and admin. You'll be able to compare them live and pick the winner (or keep both).
@@ -22,6 +21,7 @@ Partners is rendered as a "Coming Soon" page in both, per the plan's Phase 2 not
 ## Shared backend (Lovable Cloud)
 
 One database, one admin, both sites read from it. Tables:
+
 - `rooms` — 6 rows, fields: name, slug, photos[], sqft, amenities, status (`available` / `waitlist` / `occupied`), notes
 - `inquiries` — contact/admissions/tour form submissions, with source page + which design they came from
 - `testimonials` — family quotes (FTC-safe, no medical-outcome claims)
@@ -29,6 +29,7 @@ One database, one admin, both sites read from it. Tables:
 - `site_settings` — business name, DSHS license #, phone, email, address, social links (single source of truth so both designs always show identical info)
 
 Admin pages (Supabase Auth, owner-only):
+
 - `/admin` — dashboard overview (room status, recent inquiries)
 - `/admin/rooms` — toggle availability per room
 - `/admin/inquiries` — table view of leads

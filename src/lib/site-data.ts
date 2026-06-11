@@ -54,10 +54,7 @@ export const roomsQueryOptions = () =>
   queryOptions({
     queryKey: ["rooms"],
     queryFn: async (): Promise<Room[]> => {
-      const { data, error } = await supabase
-        .from("rooms")
-        .select("*")
-        .order("sort_order");
+      const { data, error } = await supabase.from("rooms").select("*").order("sort_order");
       if (error) throw error;
       return (data ?? []).map((r) => ({
         ...r,
@@ -112,6 +109,7 @@ export const settingsQueryOptions = () =>
       if (error) throw error;
       return (data ?? {
         business_name: "Senior Services Adult Family Home",
+        tagline: "Gentle Hands. Caring Hearts. A Place to Belong.",
         email: "seniorservicesafh@gmail.com",
         phone: "+1 360 770 6434",
       }) as SiteSettings;
@@ -154,4 +152,28 @@ export async function submitInquiry(input: {
 
 export function statusLabel(status: RoomStatus) {
   return status === "available" ? "Available now" : status === "waitlist" ? "Waitlist" : "Occupied";
+}
+
+export function statusTone(status: RoomStatus) {
+  if (status === "available") {
+    return {
+      background: "var(--h-primary-soft)",
+      color: "var(--h-primary)",
+      borderColor: "transparent",
+    };
+  }
+
+  if (status === "waitlist") {
+    return {
+      background: "#fef3c7",
+      color: "#854d0e",
+      borderColor: "transparent",
+    };
+  }
+
+  return {
+    background: "#e7e5e4",
+    color: "#57534e",
+    borderColor: "#d6d3d1",
+  };
 }

@@ -74,20 +74,38 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Senior Services Adult Family Home — Adult Family Home in Mount Vernon, WA" },
-      { name: "description", content: "Senior Services Adult Family Home is a licensed adult family home in Mount Vernon, WA serving Skagit County — Burlington, Sedro-Woolley, Anacortes, and surrounding Washington communities. Private bedrooms, 24-hour care, dementia-friendly support." },
+      {
+        name: "description",
+        content:
+          "Senior Services Adult Family Home is a licensed adult family home in Mount Vernon, WA serving Skagit County — Burlington, Sedro-Woolley, Anacortes, and surrounding Washington communities. Private bedrooms, 24-hour care, dementia-friendly support.",
+      },
       { name: "author", content: "Senior Services Adult Family Home" },
-      { name: "keywords", content: "adult family home Mount Vernon WA, senior care Mount Vernon, adult care home Skagit County, assisted living Burlington WA, dementia care Sedro-Woolley, elderly care Anacortes, Washington adult family home, senior living Mount Vernon, memory care Skagit Valley" },
-      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+      {
+        name: "keywords",
+        content:
+          "adult family home Mount Vernon WA, senior care Mount Vernon, adult care home Skagit County, assisted living Burlington WA, dementia care Sedro-Woolley, elderly care Anacortes, Washington adult family home, senior living Mount Vernon, memory care Skagit Valley",
+      },
+      {
+        name: "robots",
+        content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      },
       { name: "geo.region", content: "US-WA" },
       { name: "geo.placename", content: "Mount Vernon, Washington" },
       { property: "og:title", content: "Senior Services Adult Family Home — Mount Vernon, WA" },
-      { property: "og:description", content: "Licensed adult family home in Mount Vernon, WA serving Skagit County. Personalized senior care, private bedrooms, dementia support." },
+      {
+        property: "og:description",
+        content:
+          "Licensed adult family home in Mount Vernon, WA serving Skagit County. Personalized senior care, private bedrooms, dementia support.",
+      },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "en_US" },
       { property: "og:site_name", content: "Senior Services Adult Family Home" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Senior Services Adult Family Home — Mount Vernon, WA" },
-      { name: "twitter:description", content: "Licensed adult family home in Mount Vernon, WA serving Skagit County." },
+      {
+        name: "twitter:description",
+        content: "Licensed adult family home in Mount Vernon, WA serving Skagit County.",
+      },
     ],
     links: [
       {
@@ -112,7 +130,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               "@id": "https://ssafh.lovable.app/#business",
               name: "Senior Services Adult Family Home",
               alternateName: "Senior Services AFH",
-              description: "Licensed adult family home in Mount Vernon, WA providing personalized 24-hour senior care, private bedrooms, dementia support, and a true residential setting for up to six residents.",
+              description:
+                "Licensed adult family home in Mount Vernon, WA providing personalized 24-hour senior care, private bedrooms, dementia support, and a true residential setting for up to six residents.",
               url: "https://ssafh.lovable.app",
               telephone: "+13607706434",
               email: "seniorservicesafh@gmail.com",
@@ -147,7 +166,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               ],
               openingHoursSpecification: {
                 "@type": "OpeningHoursSpecification",
-                dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+                dayOfWeek: [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ],
                 opens: "00:00",
                 closes: "23:59",
               },
@@ -155,10 +182,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
                 "@type": "OfferCatalog",
                 name: "Senior Care Services",
                 itemListElement: [
-                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Private Bedroom Adult Family Home Care" } },
-                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Dementia & Memory Care" } },
-                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Medication Management" } },
-                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "24-Hour Supervision" } },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Private Bedroom Adult Family Home Care",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: { "@type": "Service", name: "Dementia & Memory Care" },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: { "@type": "Service", name: "Medication Management" },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: { "@type": "Service", name: "24-Hour Supervision" },
+                  },
                   { "@type": "Offer", itemOffered: { "@type": "Service", name: "Respite Care" } },
                 ],
               },

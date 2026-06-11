@@ -5,18 +5,20 @@ import { z } from "zod";
 import { submitInquiry } from "@/lib/site-data";
 import { toast } from "sonner";
 
-const schema = z.object({
-  name: z.string().min(1, "Please tell us your name").max(200),
-  email: z.string().email("Enter a valid email").max(320).optional().or(z.literal("")),
-  phone: z.string().max(40).optional().or(z.literal("")),
-  relation: z.string().max(120).optional().or(z.literal("")),
-  message: z.string().max(4000).optional().or(z.literal("")),
-  preferred_date: z.string().optional().or(z.literal("")),
-  preferred_time: z.string().optional().or(z.literal("")),
-}).refine((d) => !!d.email || !!d.phone, {
-  message: "Please give us a phone or email",
-  path: ["email"],
-});
+const schema = z
+  .object({
+    name: z.string().min(1, "Please tell us your name").max(200),
+    email: z.string().email("Enter a valid email").max(320).optional().or(z.literal("")),
+    phone: z.string().max(40).optional().or(z.literal("")),
+    relation: z.string().max(120).optional().or(z.literal("")),
+    message: z.string().max(4000).optional().or(z.literal("")),
+    preferred_date: z.string().optional().or(z.literal("")),
+    preferred_time: z.string().optional().or(z.literal("")),
+  })
+  .refine((d) => !!d.email || !!d.phone, {
+    message: "Please give us a phone or email",
+    path: ["email"],
+  });
 
 type Values = z.infer<typeof schema>;
 
@@ -40,7 +42,15 @@ export function InquiryForm({
   const [done, setDone] = useState(false);
   const f = useForm<Values>({
     resolver: zodResolver(schema),
-    defaultValues: { name: "", email: "", phone: "", relation: "", message: "", preferred_date: "", preferred_time: "" },
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      relation: "",
+      message: "",
+      preferred_date: "",
+      preferred_time: "",
+    },
   });
 
   const onSubmit = async (v: Values) => {
@@ -82,9 +92,16 @@ export function InquiryForm({
 
   if (done) {
     return (
-      <div className="p-6 rounded-lg" style={{ background: isH ? "var(--h-primary-soft)" : "var(--hl-primary-soft)" }}>
-        <p className="font-medium">Thank you. We received your message and will reply within one business day.</p>
-        <button onClick={() => setDone(false)} className="mt-3 text-sm underline">Send another</button>
+      <div
+        className="p-6 rounded-lg"
+        style={{ background: isH ? "var(--h-primary-soft)" : "var(--hl-primary-soft)" }}
+      >
+        <p className="font-medium">
+          Thank you. We received your message and will reply within one business day.
+        </p>
+        <button onClick={() => setDone(false)} className="mt-3 text-sm underline">
+          Send another
+        </button>
       </div>
     );
   }
@@ -93,44 +110,91 @@ export function InquiryForm({
     <form onSubmit={f.handleSubmit(onSubmit)} className="space-y-5" noValidate>
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label className={labelCls} htmlFor="name">Your name</label>
-          <input id="name" className={inputCls} {...f.register("name")} required aria-required="true" />
+          <label className={labelCls} htmlFor="name">
+            Your name
+          </label>
+          <input
+            id="name"
+            className={inputCls}
+            {...f.register("name")}
+            required
+            aria-required="true"
+          />
           {f.formState.errors.name && <p className={errCls}>{f.formState.errors.name.message}</p>}
         </div>
         <div>
-          <label className={labelCls} htmlFor="relation">Relationship to resident</label>
-          <input id="relation" className={inputCls} placeholder="Daughter, son, spouse…" {...f.register("relation")} />
+          <label className={labelCls} htmlFor="relation">
+            Relationship to resident
+          </label>
+          <input
+            id="relation"
+            className={inputCls}
+            placeholder="Daughter, son, spouse…"
+            {...f.register("relation")}
+          />
         </div>
         <div>
-          <label className={labelCls} htmlFor="email">Email</label>
+          <label className={labelCls} htmlFor="email">
+            Email
+          </label>
           <input id="email" type="email" className={inputCls} {...f.register("email")} />
           {f.formState.errors.email && <p className={errCls}>{f.formState.errors.email.message}</p>}
         </div>
         <div>
-          <label className={labelCls} htmlFor="phone">Phone</label>
+          <label className={labelCls} htmlFor="phone">
+            Phone
+          </label>
           <input id="phone" type="tel" className={inputCls} {...f.register("phone")} />
         </div>
         {showSchedule && (
           <>
             <div>
-              <label className={labelCls} htmlFor="preferred_date">Preferred date</label>
-              <input id="preferred_date" type="date" className={inputCls} {...f.register("preferred_date")} />
+              <label className={labelCls} htmlFor="preferred_date">
+                Preferred date
+              </label>
+              <input
+                id="preferred_date"
+                type="date"
+                className={inputCls}
+                {...f.register("preferred_date")}
+              />
             </div>
             <div>
-              <label className={labelCls} htmlFor="preferred_time">Preferred time</label>
-              <input id="preferred_time" type="time" className={inputCls} {...f.register("preferred_time")} />
+              <label className={labelCls} htmlFor="preferred_time">
+                Preferred time
+              </label>
+              <input
+                id="preferred_time"
+                type="time"
+                className={inputCls}
+                {...f.register("preferred_time")}
+              />
             </div>
           </>
         )}
       </div>
       <div>
-        <label className={labelCls} htmlFor="message">How can we help?</label>
-        <textarea id="message" rows={5} className={inputCls + " min-h-[120px]"} {...f.register("message")} />
+        <label className={labelCls} htmlFor="message">
+          How can we help?
+        </label>
+        <textarea
+          id="message"
+          rows={5}
+          className={inputCls + " min-h-[120px]"}
+          {...f.register("message")}
+        />
       </div>
-      <button type="submit" className={btnCls} style={{ background: btnBg }} disabled={f.formState.isSubmitting}>
+      <button
+        type="submit"
+        className={btnCls}
+        style={{ background: btnBg }}
+        disabled={f.formState.isSubmitting}
+      >
         {f.formState.isSubmitting ? "Sending…" : (submitLabel ?? "Send message")}
       </button>
-      <p className="text-xs text-stone-500">We respond within one business day. For urgent care needs, please call.</p>
+      <p className="text-xs text-stone-500">
+        We respond within one business day. For urgent care needs, please call.
+      </p>
     </form>
   );
 }

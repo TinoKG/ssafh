@@ -32,10 +32,31 @@ export type CommonArea = {
 // Listed manually so we control display order and copy. Tiles only render for
 // areas that actually have media in their folder.
 export const COMMON_AREAS: CommonArea[] = [
-  { slug: "sitting", name: "Sitting Room", description: "A bright, comfortable gathering space for visits, TV, and quiet afternoons." },
-  { slug: "dining", name: "Dining Room", description: "Home-cooked meals served family-style around a shared table." },
-  { slug: "kitchen", name: "Kitchen", description: "The heart of the home — where every meal is prepared fresh each day." },
-  { slug: "porch", name: "Porch", description: "Covered outdoor seating for fresh air, sunshine, and a change of scenery." },
+  {
+    slug: "sitting",
+    name: "Sitting Room",
+    description: "A bright, comfortable gathering space for visits, TV, and quiet afternoons.",
+  },
+  {
+    slug: "dining",
+    name: "Dining Room",
+    description: "Home-cooked meals served family-style around a shared table.",
+  },
+  {
+    slug: "kitchen",
+    name: "Kitchen",
+    description: "The heart of the home — where every meal is prepared fresh each day.",
+  },
+  {
+    slug: "restroom-01",
+    name: "Restroom 1",
+    description: "A clean, accessible restroom maintained for daily comfort and ease.",
+  },
+  {
+    slug: "porch",
+    name: "Porch",
+    description: "Covered outdoor seating for fresh air, sunshine, and a change of scenery.",
+  },
 ];
 
 export function getCommonAreaMedia(slug: string): RoomMedia[] {

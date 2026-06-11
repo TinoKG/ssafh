@@ -31,7 +31,11 @@ export const Route = createFileRoute("/sitemap.xml")({
         try {
           const { data: rooms } = await supabase.from("rooms").select("slug").order("sort_order");
           (rooms ?? []).forEach((r: { slug: string }) => {
-            entries.push({ path: `/heritage/rooms/${r.slug}`, changefreq: "weekly", priority: "0.7" });
+            entries.push({
+              path: `/heritage/rooms/${r.slug}`,
+              changefreq: "weekly",
+              priority: "0.7",
+            });
           });
         } catch {
           // ignore — sitemap still valid without dynamic rows
@@ -44,7 +48,9 @@ export const Route = createFileRoute("/sitemap.xml")({
             e.changefreq ? `    <changefreq>${e.changefreq}</changefreq>` : null,
             e.priority ? `    <priority>${e.priority}</priority>` : null,
             `  </url>`,
-          ].filter(Boolean).join("\n"),
+          ]
+            .filter(Boolean)
+            .join("\n"),
         );
 
         const xml = [

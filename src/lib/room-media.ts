@@ -12,6 +12,7 @@ export type RoomMedia = {
 };
 
 const VIDEO_EXT = /\.(mp4|webm|mov)$/i;
+const ROOM_SLUG = /^room-\d+$/;
 
 const modules = import.meta.glob(
   "/src/assets/rooms/**/*.{jpg,jpeg,png,webp,avif,mp4,webm,mov,JPG,JPEG,PNG,WEBP,AVIF,MP4,WEBM,MOV}",
@@ -31,13 +32,20 @@ for (const slug of Object.keys(bySlug)) {
   bySlug[slug].sort((a, b) => a.name.localeCompare(b.name));
 }
 
-// Asset folders now use the normalized slugs (room-1, room-2, room-3, porch, backyard)
-// so media is discovered directly from those directories.
+export function getRoomSlugsWithMedia(): string[] {
+  return Object.keys(bySlug)
+    .filter((slug) => ROOM_SLUG.test(slug) && bySlug[slug].some((m) => m.type === "image"))
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+}
 
 export function getRoomMedia(slug: string): RoomMedia[] {
   const list = bySlug[slug];
   if (list && list.length > 0) return list;
   return [{ url: ROOM_FALLBACK, type: "image", name: "placeholder" }];
+}
+
+export function getRealRoomMedia(slug: string): RoomMedia[] {
+  return (bySlug[slug] ?? []).filter((m) => m.type === "image");
 }
 
 export function getRoomCover(slug: string): RoomMedia {
