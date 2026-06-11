@@ -26,9 +26,14 @@ export const Route = createFileRoute("/heritage/services")({
       {
         name: "description",
         content:
-          "Senior care services in Mount Vernon, WA: daily living support, meals, medication management, dementia and memory care, and 24-hour supervision in a six-resident adult family home.",
+          "Senior care services in Mount Vernon, WA: daily living, meals, medication management, dementia care, and 24-hour supervision.",
       },
       { property: "og:title", content: "Senior Care Services — Mount Vernon, WA" },
+      {
+        property: "og:description",
+        content:
+          "Daily living, meals, medication management, dementia care, and 24-hour supervision in a six-resident adult family home.",
+      },
       { property: "og:url", content: "https://ssafh.lovable.app/heritage/services" },
       { property: "og:image", content: ASSETS.dining },
     ],

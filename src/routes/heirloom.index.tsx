@@ -15,8 +15,15 @@ export const Route = createFileRoute("/heirloom/")({
           "Senior Services Adult Family Home is a licensed Mount Vernon adult family home with private bedrooms, personalized care, and a calm residential atmosphere.",
       },
       { property: "og:title", content: "Senior Services Adult Family Home" },
+      {
+        property: "og:description",
+        content:
+          "A licensed Mount Vernon, WA adult family home with private bedrooms, personalized care, and a calm residential atmosphere.",
+      },
+      { property: "og:url", content: "https://ssafh.lovable.app/heirloom" },
       { property: "og:image", content: ASSETS.hero },
     ],
+    links: [{ rel: "canonical", href: "https://ssafh.lovable.app/heirloom" }],
   }),
   component: Page,
 });
