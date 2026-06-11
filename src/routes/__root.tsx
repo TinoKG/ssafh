@@ -73,6 +73,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "google-site-verification", content: "Kgl32Mek3231loJSl7tqP-qDx1EM29hXGwGPVkU89E8" },
       { title: "Senior Services Adult Family Home | Mount Vernon, WA" },
       {
         name: "description",
