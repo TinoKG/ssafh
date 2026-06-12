@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { supabase } from "@/integrations/supabase/client";
 
-const BASE_URL = "https://ssafh.lovable.app";
+const BASE_URL = ""; // resolved dynamically from request
 
 interface SitemapEntry {
   path: string;
@@ -13,7 +13,9 @@ interface SitemapEntry {
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
-      GET: async () => {
+      GET: async ({ request }) => {
+        const url = new URL(request.url);
+        const base = `${url.protocol}//${url.host}`;
         const entries: SitemapEntry[] = [
           { path: "/heritage", changefreq: "weekly", priority: "1.0" },
           { path: "/heritage/about", changefreq: "monthly", priority: "0.8" },
@@ -49,7 +51,7 @@ export const Route = createFileRoute("/sitemap.xml")({
         const urls = entries.map((e) =>
           [
             `  <url>`,
-            `    <loc>${BASE_URL}${e.path}</loc>`,
+            `    <loc>${base}${e.path}</loc>`,
             e.changefreq ? `    <changefreq>${e.changefreq}</changefreq>` : null,
             e.priority ? `    <priority>${e.priority}</priority>` : null,
             `  </url>`,
