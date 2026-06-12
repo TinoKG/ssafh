@@ -43,7 +43,7 @@ export const Route = createFileRoute("/heritage/")({
       {
         name: "description",
         content:
-          "Senior Services Adult Family Home — a licensed adult family home in Mount Vernon, WA serving Skagit County. Six private bedrooms, 24-hour personalized senior care, dementia support, and a true residential setting.",
+          "Licensed adult family home in Mount Vernon, WA. Six private bedrooms, 24-hour personalized senior care, and dementia support across Skagit County.",
       },
       {
         property: "og:title",
@@ -154,7 +154,7 @@ function Page() {
                   <Users className="size-5" style={{ color: "var(--h-primary)" }} />
                 )}
               </div>
-              <h3 className="font-display text-2xl">{v.title}</h3>
+              <h2 className="font-display text-2xl">{v.title}</h2>
               <p className="mt-3 text-stone-600">{v.body}</p>
             </div>
           ))}

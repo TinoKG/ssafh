@@ -1,0 +1,22 @@
+# Senior Services Adult Family Home
+
+> Licensed adult family home in Mount Vernon, WA serving Skagit County families with private bedrooms, 24-hour personalized senior care, and dementia support.
+
+Senior Services Adult Family Home is a six-resident licensed adult family home at 3707 Trumpeter Ct, Mount Vernon, WA 98273. We serve Mount Vernon, Burlington, Sedro-Woolley, Anacortes, La Conner, and the surrounding Skagit County and Washington communities.
+
+## Pages
+
+- [Home](/heritage): Overview of our adult family home, philosophy, and current bedroom availability.
+- [About](/heritage/about): Our story, caregivers, and how we approach senior care.
+- [Services](/heritage/services): Daily living support, meals, medication management, dementia care, and 24-hour supervision.
+- [Bedrooms](/heritage/rooms): Six private bedrooms with photos, amenities, and live availability.
+- [Admissions](/heritage/admissions): Our five-step admissions process, Medicaid and private pay options, and RCW 70.128.280 disclosures.
+- [Resources](/heritage/resources): Guides for Skagit County families researching adult family home care.
+- [Tour](/heritage/tour): Book an in-person visit.
+- [Contact](/heritage/contact): Phone, email, and inquiry form.
+
+## Optional
+
+- [Privacy](/privacy)
+- [Terms](/terms)
+- [Accessibility](/accessibility)
