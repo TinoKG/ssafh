@@ -18,11 +18,6 @@ export const Route = createFileRoute("/heritage/rooms")({
           "Six private bedrooms in our Mount Vernon, WA adult family home. Garden views, wood floors, and live availability for Skagit County families.",
       },
       { property: "og:title", content: "Private Bedrooms — Mount Vernon, WA Adult Family Home" },
-      {
-        property: "og:description",
-        content:
-          "Six private bedrooms with garden views and live availability in our Mount Vernon, WA adult family home.",
-      },
       { property: "og:url", content: "https://ssafh.lovable.app/heritage/rooms" },
       { property: "og:image", content: ASSETS.room },
     ],

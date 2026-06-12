@@ -43,7 +43,7 @@ export const Route = createFileRoute("/heritage/")({
       {
         name: "description",
         content:
-          "Licensed adult family home in Mount Vernon, WA. Six private bedrooms, 24-hour personalized senior care, and dementia support in Skagit County.",
+          "Senior Services Adult Family Home — a licensed adult family home in Mount Vernon, WA serving Skagit County. Six private bedrooms, 24-hour personalized senior care, dementia support, and a true residential setting.",
       },
       {
         property: "og:title",
@@ -57,10 +57,7 @@ export const Route = createFileRoute("/heritage/")({
       { property: "og:url", content: "https://ssafh.lovable.app/heritage" },
       { property: "og:image", content: ASSETS.hero },
     ],
-    links: [
-      { rel: "canonical", href: "https://ssafh.lovable.app/heritage" },
-      { rel: "preload", as: "image", href: ASSETS.hero, fetchpriority: "high" },
-    ],
+    links: [{ rel: "canonical", href: "https://ssafh.lovable.app/heritage" }],
   }),
   component: Page,
 });
@@ -80,7 +77,6 @@ function Page() {
               className="heritage-hero__image"
               width={1600}
               height={900}
-              fetchPriority="high"
             />
           </div>
           <div className="heritage-hero__panel animate-fade-up">
@@ -158,7 +154,7 @@ function Page() {
                   <Users className="size-5" style={{ color: "var(--h-primary)" }} />
                 )}
               </div>
-              <h2 className="font-display text-2xl">{v.title}</h2>
+              <h3 className="font-display text-2xl">{v.title}</h3>
               <p className="mt-3 text-stone-600">{v.body}</p>
             </div>
           ))}

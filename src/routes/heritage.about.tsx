@@ -10,7 +10,7 @@ export const Route = createFileRoute("/heritage/about")({
       {
         name: "description",
         content:
-          "Meet the family behind Senior Services Adult Family Home — a licensed, family-run home in Mount Vernon, WA serving Skagit County.",
+          "Meet Joycen Garuiya and the caregivers behind Senior Services Adult Family Home — a family-owned, licensed adult family home in Mount Vernon, WA serving Skagit County.",
       },
       {
         property: "og:title",

@@ -9,23 +9,14 @@ import { Check } from "lucide-react";
 export const Route = createFileRoute("/heritage/rooms/$slug")({
   loader: ({ context, params }) =>
     context.queryClient.ensureQueryData(roomQueryOptions(params.slug)),
-  head: ({ params }) => {
-    const label = params.slug.replace("room-", "Bedroom ").replace(/-/g, " ");
-    const title = `${label} — Senior Services Adult Family Home`;
-    const description = `${label} at Senior Services Adult Family Home — a private bedroom in our licensed Mount Vernon, WA adult family home.`;
-    const url = `https://ssafh.lovable.app/heritage/rooms/${params.slug}`;
-    return {
-      meta: [
-        { title },
-        { name: "description", content: description },
-        { property: "og:title", content: title },
-        { property: "og:description", content: description },
-        { property: "og:url", content: url },
-        { property: "og:image", content: ASSETS.room },
-      ],
-      links: [{ rel: "canonical", href: url }],
-    };
-  },
+  head: ({ params }) => ({
+    meta: [
+      {
+        title: `${params.slug.replace("room-", "Bedroom ").replace(/-/g, " ")} — Senior Services Adult Family Home`,
+      },
+      { property: "og:image", content: ASSETS.room },
+    ],
+  }),
   notFoundComponent: () => (
     <div className="max-w-3xl mx-auto px-6 py-24">
       <h1 className="font-display text-3xl">Bedroom not found</h1>
