@@ -4,4 +4,4 @@ Disallow: /admin
 Disallow: /preview
 Disallow: /heirloom
 
-Sitemap: https://ssafh.lovable.app/sitemap.xml
+Sitemap: https://seniorservicesafhmountvernon.com/sitemap.xml
