@@ -23,6 +23,11 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/heritage/resources", changefreq: "monthly", priority: "0.7" },
           { path: "/heritage/contact", changefreq: "monthly", priority: "0.9" },
           { path: "/heritage/tour", changefreq: "monthly", priority: "0.9" },
+          {
+            path: "/heritage/guides/afh-vs-assisted-living",
+            changefreq: "monthly",
+            priority: "0.7",
+          },
           { path: "/privacy", changefreq: "yearly", priority: "0.2" },
           { path: "/terms", changefreq: "yearly", priority: "0.2" },
           { path: "/accessibility", changefreq: "yearly", priority: "0.3" },
