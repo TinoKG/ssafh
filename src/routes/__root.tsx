@@ -77,7 +77,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Senior Services Adult Family Home is a licensed adult family home in Mount Vernon, WA serving Skagit County — Burlington, Sedro-Woolley, Anacortes, and surrounding Washington communities. Private bedrooms, 24-hour care, dementia-friendly support.",
+          "Licensed adult family home in Mount Vernon, WA serving Skagit County. Private bedrooms, 24-hour care, and dementia-friendly support.",
       },
       { name: "author", content: "Senior Services Adult Family Home" },
       {

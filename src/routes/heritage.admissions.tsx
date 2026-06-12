@@ -10,7 +10,7 @@ export const Route = createFileRoute("/heritage/admissions")({
       {
         name: "description",
         content:
-          "Five-step admissions process for our Mount Vernon, WA adult family home. Washington RCW 70.128.280 disclosures, Medicaid and private pay options for Skagit County families.",
+          "Five-step admissions for our Mount Vernon, WA adult family home. RCW 70.128.280 disclosures, Medicaid and private pay options.",
       },
       { property: "og:title", content: "Admissions — Mount Vernon, WA Adult Family Home" },
       { property: "og:url", content: "https://ssafh.lovable.app/heritage/admissions" },

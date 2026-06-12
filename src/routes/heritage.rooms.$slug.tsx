@@ -9,14 +9,57 @@ import { Check } from "lucide-react";
 export const Route = createFileRoute("/heritage/rooms/$slug")({
   loader: ({ context, params }) =>
     context.queryClient.ensureQueryData(roomQueryOptions(params.slug)),
-  head: ({ params }) => ({
-    meta: [
-      {
-        title: `${params.slug.replace("room-", "Bedroom ").replace(/-/g, " ")} — Senior Services Adult Family Home`,
-      },
-      { property: "og:image", content: ASSETS.room },
-    ],
-  }),
+  head: ({ params, loaderData }) => {
+    const room = loaderData as { name?: string; description?: string } | undefined;
+    const name =
+      room?.name ??
+      params.slug.replace("room-", "Bedroom ").replace(/-/g, " ");
+    const title = `${name} — Adult Family Home Bedroom in Mount Vernon, WA`;
+    const rawDesc =
+      room?.description ??
+      `Tour ${name}, a private bedroom at our licensed Mount Vernon, WA adult family home with 24-hour care.`;
+    const description =
+      rawDesc.length > 158 ? `${rawDesc.slice(0, 155).trimEnd()}…` : rawDesc;
+    const url = `https://ssafh.lovable.app/heritage/rooms/${params.slug}`;
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+        { property: "og:url", content: url },
+        { property: "og:type", content: "website" },
+        { property: "og:image", content: ASSETS.room },
+      ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Accommodation",
+            name,
+            description: rawDesc,
+            url,
+            image: ASSETS.room,
+            accommodationCategory: "Private bedroom",
+            containedInPlace: {
+              "@type": "LodgingBusiness",
+              name: "Senior Services Adult Family Home",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "3707 Trumpeter Ct",
+                addressLocality: "Mount Vernon",
+                addressRegion: "WA",
+                postalCode: "98273",
+                addressCountry: "US",
+              },
+            },
+          }),
+        },
+      ],
+    };
+  },
   notFoundComponent: () => (
     <div className="max-w-3xl mx-auto px-6 py-24">
       <h1 className="font-display text-3xl">Bedroom not found</h1>

@@ -27,6 +27,7 @@ import { Route as HeritageContactRouteImport } from './routes/heritage.contact'
 import { Route as HeritageAdmissionsRouteImport } from './routes/heritage.admissions'
 import { Route as HeritageAboutRouteImport } from './routes/heritage.about'
 import { Route as HeritageRoomsSlugRouteImport } from './routes/heritage.rooms.$slug'
+import { Route as HeritageGuidesAfhVsAssistedLivingRouteImport } from './routes/heritage.guides.afh-vs-assisted-living'
 
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
@@ -118,6 +119,12 @@ const HeritageRoomsSlugRoute = HeritageRoomsSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => HeritageRoomsRoute,
 } as any)
+const HeritageGuidesAfhVsAssistedLivingRoute =
+  HeritageGuidesAfhVsAssistedLivingRouteImport.update({
+    id: '/guides/afh-vs-assisted-living',
+    path: '/guides/afh-vs-assisted-living',
+    getParentRoute: () => HeritageRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -137,6 +144,7 @@ export interface FileRoutesByFullPath {
   '/heritage/tour': typeof HeritageTourRoute
   '/heirloom/': typeof HeirloomIndexRoute
   '/heritage/': typeof HeritageIndexRoute
+  '/heritage/guides/afh-vs-assisted-living': typeof HeritageGuidesAfhVsAssistedLivingRoute
   '/heritage/rooms/$slug': typeof HeritageRoomsSlugRoute
 }
 export interface FileRoutesByTo {
@@ -155,6 +163,7 @@ export interface FileRoutesByTo {
   '/heritage/tour': typeof HeritageTourRoute
   '/heirloom': typeof HeirloomIndexRoute
   '/heritage': typeof HeritageIndexRoute
+  '/heritage/guides/afh-vs-assisted-living': typeof HeritageGuidesAfhVsAssistedLivingRoute
   '/heritage/rooms/$slug': typeof HeritageRoomsSlugRoute
 }
 export interface FileRoutesById {
@@ -176,6 +185,7 @@ export interface FileRoutesById {
   '/heritage/tour': typeof HeritageTourRoute
   '/heirloom/': typeof HeirloomIndexRoute
   '/heritage/': typeof HeritageIndexRoute
+  '/heritage/guides/afh-vs-assisted-living': typeof HeritageGuidesAfhVsAssistedLivingRoute
   '/heritage/rooms/$slug': typeof HeritageRoomsSlugRoute
 }
 export interface FileRouteTypes {
@@ -198,6 +208,7 @@ export interface FileRouteTypes {
     | '/heritage/tour'
     | '/heirloom/'
     | '/heritage/'
+    | '/heritage/guides/afh-vs-assisted-living'
     | '/heritage/rooms/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -216,6 +227,7 @@ export interface FileRouteTypes {
     | '/heritage/tour'
     | '/heirloom'
     | '/heritage'
+    | '/heritage/guides/afh-vs-assisted-living'
     | '/heritage/rooms/$slug'
   id:
     | '__root__'
@@ -236,6 +248,7 @@ export interface FileRouteTypes {
     | '/heritage/tour'
     | '/heirloom/'
     | '/heritage/'
+    | '/heritage/guides/afh-vs-assisted-living'
     | '/heritage/rooms/$slug'
   fileRoutesById: FileRoutesById
 }
@@ -378,6 +391,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HeritageRoomsSlugRouteImport
       parentRoute: typeof HeritageRoomsRoute
     }
+    '/heritage/guides/afh-vs-assisted-living': {
+      id: '/heritage/guides/afh-vs-assisted-living'
+      path: '/guides/afh-vs-assisted-living'
+      fullPath: '/heritage/guides/afh-vs-assisted-living'
+      preLoaderRoute: typeof HeritageGuidesAfhVsAssistedLivingRouteImport
+      parentRoute: typeof HeritageRoute
+    }
   }
 }
 
@@ -414,6 +434,7 @@ interface HeritageRouteChildren {
   HeritageServicesRoute: typeof HeritageServicesRoute
   HeritageTourRoute: typeof HeritageTourRoute
   HeritageIndexRoute: typeof HeritageIndexRoute
+  HeritageGuidesAfhVsAssistedLivingRoute: typeof HeritageGuidesAfhVsAssistedLivingRoute
 }
 
 const HeritageRouteChildren: HeritageRouteChildren = {
@@ -425,6 +446,8 @@ const HeritageRouteChildren: HeritageRouteChildren = {
   HeritageServicesRoute: HeritageServicesRoute,
   HeritageTourRoute: HeritageTourRoute,
   HeritageIndexRoute: HeritageIndexRoute,
+  HeritageGuidesAfhVsAssistedLivingRoute:
+    HeritageGuidesAfhVsAssistedLivingRoute,
 }
 
 const HeritageRouteWithChildren = HeritageRoute._addFileChildren(
